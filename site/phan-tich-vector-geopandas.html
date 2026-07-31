@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Đọc, làm sạch, truy vấn, ghép và xuất dữ liệu vector bằng giao diện quen thuộc của Pandas.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Phân tích vector với GeoPandas">
+  <meta property="og:description" content="Đọc, làm sạch, truy vấn, ghép và xuất dữ liệu vector bằng giao diện quen thuộc của Pandas.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/phan-tich-vector-geopandas.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/phan-tich-vector-geopandas.html">
+  <title>Phân tích vector với GeoPandas · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html" class="hien-tai" aria-current="page">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Vector / Chương 7</div>
+  <h1 class="tieu-de-trang">Phân tích vector với GeoPandas</h1>
+  <p class="tom-tat">Đọc, làm sạch, truy vấn, ghép và xuất dữ liệu vector bằng giao diện quen thuộc của Pandas.</p>
+  <div class="thong-tin"><span>⏱ 1 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="geodataframe">GeoDataFrame<a class="lien-ket-muc" href="#geodataframe" aria-label="Liên kết đến mục này">#</a></h1>
+<p>GeoPandas mở rộng <code>DataFrame</code> bằng cột hình học và CRS. Mỗi <code>GeoDataFrame</code> có một cột hình học đang hoạt động; các cột hình học khác có thể tồn tại nhưng cần được quản lý rõ ràng.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import geopandas as gpd
+
+xa = gpd.read_file(&quot;du_lieu/goc/hanh_chinh.gpkg&quot;, layer=&quot;xa&quot;)
+truong_hoc = gpd.read_file(&quot;du_lieu/goc/cong_trinh.gpkg&quot;, layer=&quot;truong_hoc&quot;)
+
+print(xa.crs)
+print(xa.geometry.name)
+print(xa.geom_type.value_counts())</code></pre></div>
+<h2 id="chọn-và-chuẩn-hóa-cột">Chọn và chuẩn hóa cột<a class="lien-ket-muc" href="#chọn-và-chuẩn-hóa-cột" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">xa_sach = (
+    xa.rename(columns={&quot;Ten_Xa&quot;: &quot;ten_xa&quot;, &quot;Ma_Xa&quot;: &quot;ma_xa&quot;})
+    .loc[:, [&quot;ma_xa&quot;, &quot;ten_xa&quot;, &quot;dan_so&quot;, &quot;geometry&quot;]]
+    .drop_duplicates(subset=&quot;ma_xa&quot;)
+)
+
+assert xa_sach[&quot;ma_xa&quot;].notna().all()
+assert xa_sach[&quot;ma_xa&quot;].is_unique</code></pre></div>
+<p>Chuẩn hóa tên cột ngay sau khi đọc giúp phần còn lại của quy trình không phụ thuộc cách viết trong nguồn.</p>
+<h2 id="ghép-theo-thuộc-tính">Ghép theo thuộc tính<a class="lien-ket-muc" href="#ghép-theo-thuộc-tính" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import pandas as pd
+
+thong_ke = pd.read_csv(&quot;du_lieu/goc/dan_so.csv&quot;, dtype={&quot;ma_xa&quot;: &quot;string&quot;})
+xa_co_dan_so = xa_sach.merge(
+    thong_ke,
+    on=&quot;ma_xa&quot;,
+    how=&quot;left&quot;,
+    validate=&quot;one_to_one&quot;,
+    indicator=True,
+)
+
+print(xa_co_dan_so[&quot;_merge&quot;].value_counts())</code></pre></div>
+<p><code>validate</code> phát hiện quan hệ khóa không đúng kỳ vọng. <code>indicator</code> giúp tìm bản ghi không ghép được thay vì âm thầm tạo giá trị thiếu.</p>
+<h2 id="ghép-không-gian">Ghép không gian<a class="lien-ket-muc" href="#ghép-không-gian" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">truong_hoc = truong_hoc.to_crs(xa_sach.crs)
+truong_theo_xa = gpd.sjoin(
+    truong_hoc,
+    xa_sach[[&quot;ma_xa&quot;, &quot;ten_xa&quot;, &quot;geometry&quot;]],
+    how=&quot;left&quot;,
+    predicate=&quot;within&quot;,
+)
+
+so_truong = (
+    truong_theo_xa.groupby(&quot;ma_xa&quot;, dropna=False)
+    .size()
+    .rename(&quot;so_truong&quot;)
+    .reset_index()
+)</code></pre></div>
+<p>Điểm nằm đúng trên ranh có thể không ghép với <code>within</code>. Tùy bài toán, dùng <code>intersects</code>, sửa dữ liệu hoặc xây dựng quy tắc phân xử có thể kiểm toán.</p>
+<h2 id="overlay-và-dissolve">Overlay và dissolve<a class="lien-ket-muc" href="#overlay-và-dissolve" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">vung_ngap = gpd.read_file(&quot;du_lieu/goc/ngap.gpkg&quot;).to_crs(xa_sach.crs)
+giao = gpd.overlay(xa_sach, vung_ngap, how=&quot;intersection&quot;, keep_geom_type=True)
+giao[&quot;dien_tich_ngap_m2&quot;] = giao.geometry.area
+
+ngap_theo_xa = giao.dissolve(by=&quot;ma_xa&quot;, aggfunc={&quot;dien_tich_ngap_m2&quot;: &quot;sum&quot;})</code></pre></div>
+<p>Trước khi tính diện tích, đảm bảo CRS có đơn vị mét. Với lớp lớn, lọc theo vùng bao hoặc chỉ mục không gian trước khi overlay.</p>
+<h2 id="ghi-dữ-liệu">Ghi dữ liệu<a class="lien-ket-muc" href="#ghi-dữ-liệu" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">xa_co_dan_so.to_file(
+    &quot;du_lieu/da_xu_ly/ket_qua.gpkg&quot;,
+    layer=&quot;xa_co_dan_so&quot;,
+    driver=&quot;GPKG&quot;,
+)
+xa_co_dan_so.to_parquet(&quot;du_lieu/da_xu_ly/xa_co_dan_so.parquet&quot;)</code></pre></div>
+<h2 id="kiểm-tra-chất-lượng">Kiểm tra chất lượng<a class="lien-ket-muc" href="#kiểm-tra-chất-lượng" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">assert xa_co_dan_so.crs is not None
+assert xa_co_dan_so.geometry.is_valid.all()
+assert xa_co_dan_so[&quot;ma_xa&quot;].is_unique
+assert xa_co_dan_so[&quot;dan_so&quot;].ge(0).all()</code></pre></div>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Tính số trường học trên 10.000 dân theo xã. Báo cáo riêng số điểm không ghép được và kiểm tra trực quan các điểm nằm gần ranh giới.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="hinh-hoc-voi-shapely.html"><small>← Chương trước</small>Hình học không gian với Shapely</a><a href="quy-trinh-phan-tich-vector.html"><small>Chương tiếp →</small>Quy trình phân tích vector</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#chọn-và-chuẩn-hóa-cột">Chọn và chuẩn hóa cột</a><a class="cap-2" href="#ghép-theo-thuộc-tính">Ghép theo thuộc tính</a><a class="cap-2" href="#ghép-không-gian">Ghép không gian</a><a class="cap-2" href="#overlay-và-dissolve">Overlay và dissolve</a><a class="cap-2" href="#ghi-dữ-liệu">Ghi dữ liệu</a><a class="cap-2" href="#kiểm-tra-chất-lượng">Kiểm tra chất lượng</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

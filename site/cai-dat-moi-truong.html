@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Tạo môi trường Python GIS ổn định trên Windows, macOS và Linux, đồng thời tránh xung đột thư viện nhị phân.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cài đặt và quản lý môi trường">
+  <meta property="og:description" content="Tạo môi trường Python GIS ổn định trên Windows, macOS và Linux, đồng thời tránh xung đột thư viện nhị phân.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/cai-dat-moi-truong.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/cai-dat-moi-truong.html">
+  <title>Cài đặt và quản lý môi trường · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html" class="hien-tai" aria-current="page">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Khởi động / Chương 2</div>
+  <h1 class="tieu-de-trang">Cài đặt và quản lý môi trường</h1>
+  <p class="tom-tat">Tạo môi trường Python GIS ổn định trên Windows, macOS và Linux, đồng thời tránh xung đột thư viện nhị phân.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="vì-sao-cần-môi-trường-riêng">Vì sao cần môi trường riêng?<a class="lien-ket-muc" href="#vì-sao-cần-môi-trường-riêng" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Các thư viện GIS thường phụ thuộc vào GEOS, GDAL và PROJ. Đây là những thành phần nhị phân có quan hệ phiên bản chặt chẽ. Cài tất cả vào Python hệ thống có thể làm dự án này ảnh hưởng dự án khác. Mỗi dự án nên có một môi trường độc lập và tệp mô tả phiên bản.</p>
+<h2 id="lựa-chọn-công-cụ">Lựa chọn công cụ<a class="lien-ket-muc" href="#lựa-chọn-công-cụ" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="bang-cuon"><table><thead><tr><th>Nhu cầu</th><th>Khuyến nghị</th><th>Lý do</th></tr></thead><tbody><tr><td>Người mới, Windows</td><td>Miniforge và Conda</td><td>Giải quyết tốt thư viện GIS nhị phân</td></tr><tr><td>Gói thuần Python</td><td><code>venv</code> và <code>pip</code></td><td>Có sẵn trong Python, gọn nhẹ</td></tr><tr><td>Dự án cần tốc độ</td><td><code>uv</code></td><td>Cài và khóa phụ thuộc nhanh</td></tr><tr><td>PyQGIS</td><td>Python đi kèm QGIS</td><td>Khớp chính xác thư viện QGIS</td></tr></tbody></table></div>
+<p>Giáo trình không bắt buộc một công cụ duy nhất. Điều quan trọng là không trộn lẫn <code>pip</code> và <code>conda</code> tùy tiện trong cùng môi trường.</p>
+<h2 id="cách-1-miniforge">Cách 1: Miniforge<a class="lien-ket-muc" href="#cách-1-miniforge" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Sau khi cài Miniforge, mở thiết bị đầu cuối:</p>
+<div class="khoi-ma"><span class="nhan-ma">bash</span><pre><code class="language-bash">conda create -n pygis-vn -c conda-forge python=3.12 geopandas rasterio \
+  rioxarray xarray dask matplotlib folium osmnx jupyterlab
+conda activate pygis-vn
+python -c &quot;import geopandas, rasterio; print(&#x27;Môi trường sẵn sàng&#x27;)&quot;</code></pre></div>
+<p>Kênh <code>conda-forge</code> cung cấp bộ gói đồng nhất. Hãy ưu tiên cài các gói chính trong một lệnh để bộ giải phụ thuộc nhìn thấy toàn bộ yêu cầu.</p>
+<h2 id="cách-2-venv">Cách 2: venv<a class="lien-ket-muc" href="#cách-2-venv" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">bash</span><pre><code class="language-bash">python -m venv .venv</code></pre></div>
+<p>Kích hoạt trên Windows PowerShell:</p>
+<div class="khoi-ma"><span class="nhan-ma">powershell</span><pre><code class="language-powershell">.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install geopandas rasterio matplotlib jupyterlab</code></pre></div>
+<p>Kích hoạt trên Linux hoặc macOS:</p>
+<div class="khoi-ma"><span class="nhan-ma">bash</span><pre><code class="language-bash">source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install geopandas rasterio matplotlib jupyterlab</code></pre></div>
+<h2 id="kiểm-tra-có-hệ-thống">Kiểm tra có hệ thống<a class="lien-ket-muc" href="#kiểm-tra-có-hệ-thống" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Tạo tệp <code>kiem_tra.py</code>:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from importlib.metadata import version
+
+goi_can_thiet = [&quot;geopandas&quot;, &quot;shapely&quot;, &quot;pyproj&quot;, &quot;rasterio&quot;]
+for ten_goi in goi_can_thiet:
+    print(f&quot;{ten_goi:12} {version(ten_goi)}&quot;)</code></pre></div>
+<p>Chạy bằng đúng trình thông dịch:</p>
+<div class="khoi-ma"><span class="nhan-ma">bash</span><pre><code class="language-bash">python kiem_tra.py
+python -c &quot;import sys; print(sys.executable)&quot;</code></pre></div>
+<p>Nếu đường dẫn không trỏ vào môi trường vừa tạo, bạn đang dùng sai Python.</p>
+<h2 id="cấu-trúc-dự-án-khuyến-nghị">Cấu trúc dự án khuyến nghị<a class="lien-ket-muc" href="#cấu-trúc-dự-án-khuyến-nghị" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">text</span><pre><code class="language-text">du-an-gis/
+├── du_lieu/
+│   ├── goc/
+│   └── da_xu_ly/
+├── notebooks/
+├── src/
+├── ket_qua/
+├── tests/
+├── pyproject.toml
+└── README.md</code></pre></div>
+<p>Không chỉnh sửa trực tiếp dữ liệu gốc. Tất cả sản phẩm trung gian phải có thể tạo lại từ mã.</p>
+<aside class="canh-bao">Không đưa khóa API, mật khẩu, tệp xác thực hoặc dữ liệu cá nhân lên Git. Dùng biến môi trường và tệp <code>.env</code> đã được loại khỏi Git.</aside>
+<h2 id="khắc-phục-lỗi-thường-gặp">Khắc phục lỗi thường gặp<a class="lien-ket-muc" href="#khắc-phục-lỗi-thường-gặp" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li><code>ModuleNotFoundError</code>: kiểm tra Python và <code>pip</code> có cùng môi trường bằng <code>python -m pip</code>.</li>
+<li>Lỗi tải GDAL/PROJ: ưu tiên bộ gói từ <code>conda-forge</code>, tránh ghép nhiều kênh.</li>
+<li>Notebook không thấy môi trường: cài <code>ipykernel</code>, sau đó đăng ký kernel.</li>
+<li>Đường dẫn Windows có dấu cách: dùng <code>pathlib.Path</code>, không tự ghép chuỗi bằng dấu gạch chéo.</li>
+</ul>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<ol>
+<li>Tạo môi trường <code>pygis-vn</code>.</li>
+<li>In phiên bản Python, GeoPandas, Shapely, PyProj và Rasterio.</li>
+<li>Tạo cấu trúc thư mục dự án và ghi lại lệnh tái tạo môi trường trong README.</li>
+</ol></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="bat-dau.html"><small>← Chương trước</small>Bắt đầu với Python GIS</a><a href="python-cho-du-lieu-gis.html"><small>Chương tiếp →</small>Python, NumPy và Pandas cho GIS</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#lựa-chọn-công-cụ">Lựa chọn công cụ</a><a class="cap-2" href="#cách-1-miniforge">Cách 1: Miniforge</a><a class="cap-2" href="#cách-2-venv">Cách 2: venv</a><a class="cap-2" href="#kiểm-tra-có-hệ-thống">Kiểm tra có hệ thống</a><a class="cap-2" href="#cấu-trúc-dự-án-khuyến-nghị">Cấu trúc dự án khuyến nghị</a><a class="cap-2" href="#khắc-phục-lỗi-thường-gặp">Khắc phục lỗi thường gặp</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

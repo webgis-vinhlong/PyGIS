@@ -1,0 +1,37 @@
+name: Kiểm tra chất lượng
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  kiem-tra:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v6
+
+      - name: Thiết lập Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Cài công cụ
+        run: python -m pip install -e ".[kiem-thu]"
+
+      - name: Kiểm tra định dạng và lỗi tĩnh
+        run: ruff check .
+
+      - name: Chạy kiểm thử
+        run: pytest
+
+      - name: Biên dịch mã Python
+        run: python -m compileall -q src vi_du tests
+
+      - name: Dựng website
+        run: pygis-vn dung --dia-chi-goc https://webgis-vinhlong.github.io/PyGIS

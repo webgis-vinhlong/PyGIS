@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Biến notebook thử nghiệm thành quy trình đáng tin cậy bằng kiểm thử, nhật ký, siêu dữ liệu và CI.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Kiểm thử, hiệu năng và khả năng tái lập">
+  <meta property="og:description" content="Biến notebook thử nghiệm thành quy trình đáng tin cậy bằng kiểm thử, nhật ký, siêu dữ liệu và CI.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/kiem-thu-va-tai-lap.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/kiem-thu-va-tai-lap.html">
+  <title>Kiểm thử, hiệu năng và khả năng tái lập · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html" class="hien-tai" aria-current="page">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Nâng cao / Chương 17</div>
+  <h1 class="tieu-de-trang">Kiểm thử, hiệu năng và khả năng tái lập</h1>
+  <p class="tom-tat">Biến notebook thử nghiệm thành quy trình đáng tin cậy bằng kiểm thử, nhật ký, siêu dữ liệu và CI.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="kết-quả-đáng-tin-cậy">Kết quả đáng tin cậy<a class="lien-ket-muc" href="#kết-quả-đáng-tin-cậy" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Một quy trình tái lập phải biết mã nào, dữ liệu nào, tham số nào và môi trường nào đã tạo ra sản phẩm. Notebook hữu ích để khám phá nhưng phần xử lý ổn định nên chuyển thành hàm, gói hoặc dòng lệnh.</p>
+<h2 id="kiểm-thử-hình-học">Kiểm thử hình học<a class="lien-ket-muc" href="#kiểm-thử-hình-học" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import geopandas as gpd
+from shapely import box
+
+
+def cat_theo_khung(lop: gpd.GeoDataFrame, bounds: tuple[float, ...]):
+    if lop.crs is None:
+        raise ValueError(&quot;Lớp chưa có CRS&quot;)
+    return lop.clip(box(*bounds))
+
+
+def test_cat_theo_khung_giu_crs():
+    lop = gpd.GeoDataFrame(
+        {&quot;ma&quot;: [1], &quot;geometry&quot;: [box(0, 0, 10, 10)]},
+        crs=&quot;EPSG:3857&quot;,
+    )
+    ket_qua = cat_theo_khung(lop, (0, 0, 5, 5))
+    assert ket_qua.crs == lop.crs
+    assert ket_qua.area.iloc[0] == 25</code></pre></div>
+<p>Test dữ liệu không gian nên kiểm tra CRS, bounds, kiểu hình học, số đối tượng, dung sai số và thuộc tính.</p>
+<h2 id="ghi-nhật-ký">Ghi nhật ký<a class="lien-ket-muc" href="#ghi-nhật-ký" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format=&quot;%(asctime)s %(levelname)s %(message)s&quot;,
+)
+nhat_ky = logging.getLogger(__name__)
+nhat_ky.info(&quot;Bắt đầu xử lý %s đối tượng&quot;, len(lop))</code></pre></div>
+<p>Không dùng <code>print</code> cho quy trình dài. Nhật ký cần đủ để biết bước lỗi nhưng không chứa token hoặc dữ liệu cá nhân.</p>
+<h2 id="đo-trước-khi-tối-ưu">Đo trước khi tối ưu<a class="lien-ket-muc" href="#đo-trước-khi-tối-ưu" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Các hướng cải thiện thường hiệu quả:</p>
+<ul>
+<li>Đọc đúng cột và vùng cần thiết.</li>
+<li>Dùng chỉ mục không gian.</li>
+<li>Dùng thao tác vector hóa.</li>
+<li>Chia raster theo block gốc.</li>
+<li>Chuyển định dạng phù hợp như GeoParquet, COG hoặc Zarr.</li>
+<li>Tránh chuyển CRS lặp lại.</li>
+</ul>
+<p>Đừng thêm Dask hoặc xử lý song song nếu nút thắt là đọc mạng, hình học không hợp lệ hoặc thuật toán bậc hai.</p>
+<h2 id="hồ-sơ-sản-phẩm">Hồ sơ sản phẩm<a class="lien-ket-muc" href="#hồ-sơ-sản-phẩm" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Mỗi sản phẩm quan trọng nên có:</p>
+<ul>
+<li>Thời điểm tạo.</li>
+<li>Phiên bản mã hoặc commit.</li>
+<li>Nguồn và phiên bản dữ liệu.</li>
+<li>Tham số.</li>
+<li>CRS, đơn vị và phạm vi.</li>
+<li>Tổng kiểm tệp.</li>
+<li>Kiểm tra chất lượng đã chạy.</li>
+<li>Người chịu trách nhiệm.</li>
+</ul>
+<h2 id="tích-hợp-liên-tục">Tích hợp liên tục<a class="lien-ket-muc" href="#tích-hợp-liên-tục" aria-label="Liên kết đến mục này">#</a></h2>
+<p>CI của repository này cài gói, chạy <code>ruff</code>, <code>pytest</code> và dựng toàn bộ HTML. Nhờ vậy một liên kết nội bộ, tệp nội dung hoặc cú pháp Python hỏng sẽ được phát hiện trước khi triển khai.</p>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Chọn một hàm GIS đã viết, thêm ít nhất ba kiểm thử: đầu vào hợp lệ, CRS bị thiếu và hình học rỗng. Ghi thời gian chạy trên 1.000 và 10.000 đối tượng.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="xuat-ban-webgis.html"><small>← Chương trước</small>Xuất bản WebGIS từ Python</a><a href="du-an-tong-hop-vinh-long.html"><small>Chương tiếp →</small>Dự án tổng hợp tại Vĩnh Long</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#kiểm-thử-hình-học">Kiểm thử hình học</a><a class="cap-2" href="#ghi-nhật-ký">Ghi nhật ký</a><a class="cap-2" href="#đo-trước-khi-tối-ưu">Đo trước khi tối ưu</a><a class="cap-2" href="#hồ-sơ-sản-phẩm">Hồ sơ sản phẩm</a><a class="cap-2" href="#tích-hợp-liên-tục">Tích hợp liên tục</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

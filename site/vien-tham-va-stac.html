@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Xây dựng quy trình ảnh vệ tinh từ tìm kiếm danh mục, lọc mây đến chỉ số phổ và tổng hợp theo thời gian.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Viễn thám, chỉ số phổ và STAC">
+  <meta property="og:description" content="Xây dựng quy trình ảnh vệ tinh từ tìm kiếm danh mục, lọc mây đến chỉ số phổ và tổng hợp theo thời gian.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/vien-tham-va-stac.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/vien-tham-va-stac.html">
+  <title>Viễn thám, chỉ số phổ và STAC · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html" class="hien-tai" aria-current="page">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Viễn thám / Chương 11</div>
+  <h1 class="tieu-de-trang">Viễn thám, chỉ số phổ và STAC</h1>
+  <p class="tom-tat">Xây dựng quy trình ảnh vệ tinh từ tìm kiếm danh mục, lọc mây đến chỉ số phổ và tổng hợp theo thời gian.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="quy-trình-viễn-thám-có-thể-tái-lập">Quy trình viễn thám có thể tái lập<a class="lien-ket-muc" href="#quy-trình-viễn-thám-có-thể-tái-lập" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Một ảnh vệ tinh cần được hiểu qua cảm biến, mức xử lý, đơn vị phản xạ, độ phân giải từng band, mặt nạ chất lượng và thời điểm. Không áp dụng cùng công thức hoặc ngưỡng cho mọi sản phẩm mà chưa đọc tài liệu.</p>
+<h2 id="tìm-dữ-liệu-bằng-stac">Tìm dữ liệu bằng STAC<a class="lien-ket-muc" href="#tìm-dữ-liệu-bằng-stac" aria-label="Liên kết đến mục này">#</a></h2>
+<p>STAC chuẩn hóa cách mô tả tài sản không gian-thời gian. Ví dụ với <code>pystac-client</code>:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from pystac_client import Client
+
+danh_muc = Client.open(&quot;https://planetarycomputer.microsoft.com/api/stac/v1&quot;)
+tim_kiem = danh_muc.search(
+    collections=[&quot;sentinel-2-l2a&quot;],
+    bbox=[105.8, 10.1, 106.2, 10.5],
+    datetime=&quot;2025-01-01/2025-03-31&quot;,
+    query={&quot;eo:cloud_cover&quot;: {&quot;lt&quot;: 20}},
+)
+
+cac_anh = list(tim_kiem.items())
+print(f&quot;Tìm thấy {len(cac_anh)} cảnh&quot;)</code></pre></div>
+<p>Một số danh mục yêu cầu ký URL hoặc xác thực. Cơ chế truy cập có thể thay đổi; luôn tham khảo tài liệu chính thức của nhà cung cấp.</p>
+<h2 id="ndvi-có-mặt-nạ">NDVI có mặt nạ<a class="lien-ket-muc" href="#ndvi-có-mặt-nạ" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import numpy as np
+
+def tinh_ndvi(band_do: np.ndarray, band_nir: np.ndarray) -&gt; np.ndarray:
+    do = band_do.astype(&quot;float32&quot;)
+    nir = band_nir.astype(&quot;float32&quot;)
+    mau = nir + do
+    return np.divide(
+        nir - do,
+        mau,
+        out=np.full_like(nir, np.nan),
+        where=mau != 0,
+    )</code></pre></div>
+<p>Cần áp dụng hệ số tỷ lệ của sản phẩm trước khi tính nếu dữ liệu lưu dạng số nguyên. Mây, bóng mây, tuyết và pixel bão hòa phải bị loại bằng band chất lượng phù hợp.</p>
+<h2 id="tổng-hợp-theo-thời-gian">Tổng hợp theo thời gian<a class="lien-ket-muc" href="#tổng-hợp-theo-thời-gian" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Trung vị theo mùa thường giảm ảnh hưởng mây sót và ngoại lai:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">anh_sach = ndvi.where(mat_na_chat_luong)
+hop_anh = anh_sach.median(dim=&quot;time&quot;, skipna=True)
+so_quan_sat = anh_sach.notnull().sum(dim=&quot;time&quot;)</code></pre></div>
+<p>Luôn xuất thêm <code>so_quan_sat</code>. Một giá trị tổng hợp từ một quan sát không có độ tin cậy tương đương giá trị từ mười quan sát.</p>
+<h2 id="kiểm-tra-khoa-học">Kiểm tra khoa học<a class="lien-ket-muc" href="#kiểm-tra-khoa-học" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Giá trị chỉ số nằm trong miền kỳ vọng.</li>
+<li>Band đã được đưa về cùng độ phân giải và lưới.</li>
+<li>Mặt nạ chất lượng đúng với phiên bản sản phẩm.</li>
+<li>Thời gian tổng hợp phù hợp mùa vụ.</li>
+<li>Có điểm hoặc vùng kiểm chứng độc lập.</li>
+<li>Kết luận không vượt quá khả năng phân giải của cảm biến.</li>
+</ul>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Thiết kế quy trình theo dõi thảm thực vật gồm truy vấn STAC, lọc mây, NDVI, hợp ảnh tháng và số quan sát. Ghi rõ mọi tham số cần lưu để chạy lại sau một năm.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="xarray-rioxarray-dask.html"><small>← Chương trước</small>Xarray, Rioxarray, Dask và Zarr</a><a href="truc-quan-hoa-ban-do.html"><small>Chương tiếp →</small>Trực quan hóa và bản đồ tương tác</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#tìm-dữ-liệu-bằng-stac">Tìm dữ liệu bằng STAC</a><a class="cap-2" href="#ndvi-có-mặt-nạ">NDVI có mặt nạ</a><a class="cap-2" href="#tổng-hợp-theo-thời-gian">Tổng hợp theo thời gian</a><a class="cap-2" href="#kiểm-tra-khoa-học">Kiểm tra khoa học</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

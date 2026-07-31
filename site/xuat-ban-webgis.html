@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Chọn kiến trúc tĩnh, dịch vụ API hoặc vector tile và tối ưu dữ liệu trước khi đưa lên web.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Xuất bản WebGIS từ Python">
+  <meta property="og:description" content="Chọn kiến trúc tĩnh, dịch vụ API hoặc vector tile và tối ưu dữ liệu trước khi đưa lên web.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/xuat-ban-webgis.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/xuat-ban-webgis.html">
+  <title>Xuất bản WebGIS từ Python · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html" class="hien-tai" aria-current="page">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Nâng cao / Chương 16</div>
+  <h1 class="tieu-de-trang">Xuất bản WebGIS từ Python</h1>
+  <p class="tom-tat">Chọn kiến trúc tĩnh, dịch vụ API hoặc vector tile và tối ưu dữ liệu trước khi đưa lên web.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="chọn-kiến-trúc-theo-quy-mô">Chọn kiến trúc theo quy mô<a class="lien-ket-muc" href="#chọn-kiến-trúc-theo-quy-mô" aria-label="Liên kết đến mục này">#</a></h1>
+<div class="bang-cuon"><table><thead><tr><th>Quy mô</th><th>Kiến trúc</th><th>Công cụ Python gợi ý</th></tr></thead><tbody><tr><td>Bản đồ nhỏ, ít cập nhật</td><td>HTML tĩnh</td><td>Folium, GeoPandas</td></tr><tr><td>Bảng điều khiển phân tích</td><td>Ứng dụng Python</td><td>Panel, Dash, Streamlit</td></tr><tr><td>API không gian</td><td>Dịch vụ web</td><td>FastAPI, GeoAlchemy2</td></tr><tr><td>Dữ liệu vector lớn</td><td>Tile</td><td>Tippecanoe hoặc PMTiles trong quy trình</td></tr><tr><td>Raster lớn</td><td>COG và tile động</td><td>TiTiler, Rasterio</td></tr></tbody></table></div>
+<p>Website giáo trình này dùng trình dựng Python và HTML tĩnh vì nội dung ít thay đổi theo người dùng, chi phí lưu trữ thấp và có thể phục vụ bằng GitHub Pages.</p>
+<h2 id="api-tối-giản">API tối giản<a class="lien-ket-muc" href="#api-tối-giản" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+from shapely import Point
+
+ung_dung = FastAPI(title=&quot;Dịch vụ GIS&quot;)
+
+
+class ToaDo(BaseModel):
+    kinh_do: float = Field(ge=-180, le=180)
+    vi_do: float = Field(ge=-90, le=90)
+
+
+@ung_dung.post(&quot;/kiem-tra&quot;)
+def kiem_tra(diem: ToaDo) -&gt; dict[str, object]:
+    hinh_hoc = Point(diem.kinh_do, diem.vi_do)
+    if hinh_hoc.is_empty:
+        raise HTTPException(400, &quot;Tọa độ không hợp lệ&quot;)
+    return {&quot;hop_le&quot;: True, &quot;wkt&quot;: hinh_hoc.wkt}</code></pre></div>
+<p>API thật cần giới hạn kích thước hình học, xác thực, nhật ký, bộ nhớ đệm và truy vấn cơ sở dữ liệu có tham số.</p>
+<h2 id="tối-ưu-vector">Tối ưu vector<a class="lien-ket-muc" href="#tối-ưu-vector" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Chỉ giữ trường cần hiển thị.</li>
+<li>Làm tròn số theo độ chính xác hợp lý.</li>
+<li>Đơn giản hóa hình học theo mức thu phóng, giữ topology khi cần.</li>
+<li>Dùng GeoJSON cho nhỏ; vector tile hoặc PMTiles cho lớn.</li>
+<li>Không gửi dữ liệu nhạy cảm đến trình duyệt.</li>
+</ul>
+<h2 id="tối-ưu-raster">Tối ưu raster<a class="lien-ket-muc" href="#tối-ưu-raster" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Chuyển sang COG có tile nội bộ và overview.</li>
+<li>Chọn nén theo kiểu dữ liệu.</li>
+<li>Dùng NoData nhất quán.</li>
+<li>Đọc theo bounds, mức thu phóng và band cần thiết.</li>
+<li>Đưa sản phẩm tĩnh lên lưu trữ đối tượng; dùng tile động khi cần phối màu hoặc tính toán theo yêu cầu.</li>
+</ul>
+<h2 id="an-toàn">An toàn<a class="lien-ket-muc" href="#an-toàn" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Hình học do người dùng gửi có thể cực lớn hoặc không hợp lệ. Cần giới hạn số đỉnh, diện tích vùng truy vấn, thời gian xử lý và định dạng đầu ra. Không ghép trực tiếp chuỗi người dùng vào SQL.</p>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Xuất một lớp GeoPandas thành bản đồ HTML. So sánh kích thước trước và sau khi bỏ trường không cần thiết, sau đó kiểm tra trang trên màn hình nhỏ.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="geoai-hoc-may-khong-gian.html"><small>← Chương trước</small>GeoAI và học máy không gian</a><a href="kiem-thu-va-tai-lap.html"><small>Chương tiếp →</small>Kiểm thử, hiệu năng và khả năng tái lập</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#api-tối-giản">API tối giản</a><a class="cap-2" href="#tối-ưu-vector">Tối ưu vector</a><a class="cap-2" href="#tối-ưu-raster">Tối ưu raster</a><a class="cap-2" href="#an-toàn">An toàn</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

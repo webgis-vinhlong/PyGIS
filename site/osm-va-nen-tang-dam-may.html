@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Truy vấn OSM, Earth Engine và danh mục dữ liệu đám mây với giới hạn sử dụng rõ ràng.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="OpenStreetMap và nền tảng địa không gian đám mây">
+  <meta property="og:description" content="Truy vấn OSM, Earth Engine và danh mục dữ liệu đám mây với giới hạn sử dụng rõ ràng.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/osm-va-nen-tang-dam-may.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/osm-va-nen-tang-dam-may.html">
+  <title>OpenStreetMap và nền tảng địa không gian đám mây · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html" class="hien-tai" aria-current="page">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Ứng dụng / Chương 14</div>
+  <h1 class="tieu-de-trang">OpenStreetMap và nền tảng địa không gian đám mây</h1>
+  <p class="tom-tat">Truy vấn OSM, Earth Engine và danh mục dữ liệu đám mây với giới hạn sử dụng rõ ràng.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="dữ-liệu-mở-không-có-nghĩa-là-không-có-điều-kiện">Dữ liệu mở không có nghĩa là không có điều kiện<a class="lien-ket-muc" href="#dữ-liệu-mở-không-có-nghĩa-là-không-có-điều-kiện" aria-label="Liên kết đến mục này">#</a></h1>
+<p>OpenStreetMap, Earth Engine, Planetary Computer và Copernicus Data Space giúp tiếp cận dữ liệu lớn, nhưng mỗi nguồn có giấy phép, hạn mức, cơ chế xác thực và độ đầy đủ khác nhau.</p>
+<h2 id="osmnx">OSMnx<a class="lien-ket-muc" href="#osmnx" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import osmnx as ox
+
+dia_diem = &quot;Vĩnh Long, Việt Nam&quot;
+mang_duong = ox.graph_from_place(dia_diem, network_type=&quot;drive&quot;)
+cong_trinh = ox.features_from_place(
+    dia_diem,
+    tags={&quot;amenity&quot;: [&quot;school&quot;, &quot;hospital&quot;, &quot;clinic&quot;]},
+)
+
+ox.save_graphml(mang_duong, &quot;du_lieu/goc/mang_duong.graphml&quot;)
+cong_trinh.to_file(&quot;du_lieu/goc/cong_trinh_osm.gpkg&quot;, driver=&quot;GPKG&quot;)</code></pre></div>
+<p>Hình học OSM do cộng đồng đóng góp. <code>amenity=hospital</code> không bảo đảm cùng tiêu chuẩn phân loại với dữ liệu ngành y tế. Hãy đối chiếu nguồn chính thức trước quyết định quan trọng.</p>
+<h2 id="overpass-có-trách-nhiệm">Overpass có trách nhiệm<a class="lien-ket-muc" href="#overpass-có-trách-nhiệm" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Giới hạn vùng và loại đối tượng.</li>
+<li>Lưu bộ nhớ đệm, không gửi lại truy vấn giống nhau.</li>
+<li>Tôn trọng hạn mức và chính sách máy chủ.</li>
+<li>Ghi thời điểm truy vấn vì dữ liệu thay đổi.</li>
+<li>Ghi công OpenStreetMap theo yêu cầu giấy phép.</li>
+</ul>
+<h2 id="google-earth-engine">Google Earth Engine<a class="lien-ket-muc" href="#google-earth-engine" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Earth Engine thực thi biểu thức phía máy chủ. Không gọi <code>getInfo()</code> trong vòng lặp lớn.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import ee
+
+ee.Initialize()
+
+vung = ee.Geometry.Rectangle([105.8, 10.1, 106.2, 10.5])
+bo_suu_tap = (
+    ee.ImageCollection(&quot;COPERNICUS/S2_SR_HARMONIZED&quot;)
+    .filterBounds(vung)
+    .filterDate(&quot;2025-01-01&quot;, &quot;2025-03-31&quot;)
+    .filter(ee.Filter.lt(&quot;CLOUDY_PIXEL_PERCENTAGE&quot;, 20))
+)
+
+print(bo_suu_tap.size().getInfo())</code></pre></div>
+<p>Việc khởi tạo, dự án đám mây và quyền truy cập phụ thuộc chính sách hiện hành của nhà cung cấp.</p>
+<h2 id="stac-và-đọc-theo-vùng">STAC và đọc theo vùng<a class="lien-ket-muc" href="#stac-và-đọc-theo-vùng" aria-label="Liên kết đến mục này">#</a></h2>
+<p>STAC cho phép tìm tài sản; COG cho phép đọc một cửa sổ thay vì tải toàn tệp. Kết hợp hai chuẩn giúp quy trình đám mây hiệu quả:</p>
+<ol>
+<li>Tìm item theo không gian, thời gian và mây.</li>
+<li>Chọn asset và đọc siêu dữ liệu.</li>
+<li>Ký URL nếu nhà cung cấp yêu cầu.</li>
+<li>Đọc đúng vùng và độ phân giải.</li>
+<li>Lưu item ID, URL danh mục và thời điểm truy cập.</li>
+</ol>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>So sánh số cơ sở y tế từ OSM với một nguồn chính thức trên cùng khu vực. Lập bảng các đối tượng khớp, chỉ có ở OSM và chỉ có ở nguồn chính thức; không kết luận nguồn nào “đúng” nếu chưa kiểm chứng thực địa.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="tu-dong-hoa-qgis-voi-pyqgis.html"><small>← Chương trước</small>Tự động hóa QGIS với PyQGIS</a><a href="geoai-hoc-may-khong-gian.html"><small>Chương tiếp →</small>GeoAI và học máy không gian</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#osmnx">OSMnx</a><a class="cap-2" href="#overpass-có-trách-nhiệm">Overpass có trách nhiệm</a><a class="cap-2" href="#google-earth-engine">Google Earth Engine</a><a class="cap-2" href="#stac-và-đọc-theo-vùng">STAC và đọc theo vùng</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

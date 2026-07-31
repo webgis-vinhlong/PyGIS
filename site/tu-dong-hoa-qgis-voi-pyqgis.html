@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Điều khiển dự án, lớp dữ liệu và thuật toán Processing bằng Python trong QGIS 3.44.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tự động hóa QGIS với PyQGIS">
+  <meta property="og:description" content="Điều khiển dự án, lớp dữ liệu và thuật toán Processing bằng Python trong QGIS 3.44.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/tu-dong-hoa-qgis-voi-pyqgis.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/tu-dong-hoa-qgis-voi-pyqgis.html">
+  <title>Tự động hóa QGIS với PyQGIS · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html" class="hien-tai" aria-current="page">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Ứng dụng / Chương 13</div>
+  <h1 class="tieu-de-trang">Tự động hóa QGIS với PyQGIS</h1>
+  <p class="tom-tat">Điều khiển dự án, lớp dữ liệu và thuật toán Processing bằng Python trong QGIS 3.44.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="khi-nào-dùng-pyqgis">Khi nào dùng PyQGIS?<a class="lien-ket-muc" href="#khi-nào-dùng-pyqgis" aria-label="Liên kết đến mục này">#</a></h1>
+<p>PyQGIS phù hợp khi quy trình cần thuật toán Processing, bố cục in, kiểu ký hiệu hoặc giao diện QGIS. Với xử lý dữ liệu độc lập, GeoPandas và Rasterio thường dễ triển khai trên máy chủ hơn. Hai hệ sinh thái có thể bổ sung nhau.</p>
+<h2 id="bảng-điều-khiển-python">Bảng điều khiển Python<a class="lien-ket-muc" href="#bảng-điều-khiển-python" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Mở <strong>Trình bổ sung → Bảng điều khiển Python</strong> trong QGIS. Đối tượng <code>iface</code> chỉ tồn tại trong phiên giao diện QGIS.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from qgis.core import QgsProject, QgsVectorLayer
+
+duong_dan = r&quot;D:\du-an\du_lieu\hanh_chinh.gpkg|layername=xa&quot;
+lop = QgsVectorLayer(duong_dan, &quot;Ranh giới xã&quot;, &quot;ogr&quot;)
+
+if not lop.isValid():
+    raise RuntimeError(&quot;Không thể mở lớp ranh giới xã&quot;)
+
+QgsProject.instance().addMapLayer(lop)
+print(lop.featureCount(), lop.crs().authid())</code></pre></div>
+<h2 id="duyệt-đối-tượng-có-bộ-lọc">Duyệt đối tượng có bộ lọc<a class="lien-ket-muc" href="#duyệt-đối-tượng-có-bộ-lọc" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from qgis.core import QgsFeatureRequest
+
+yeu_cau = (
+    QgsFeatureRequest()
+    .setFilterExpression(&#x27;&quot;dan_so&quot; &gt; 10000&#x27;)
+    .setSubsetOfAttributes([&quot;ma_xa&quot;, &quot;ten_xa&quot;, &quot;dan_so&quot;], lop.fields())
+)
+
+for doi_tuong in lop.getFeatures(yeu_cau):
+    print(doi_tuong[&quot;ma_xa&quot;], doi_tuong[&quot;ten_xa&quot;])</code></pre></div>
+<p>Chỉ yêu cầu trường cần thiết giúp giảm đọc dữ liệu, đặc biệt với lớp từ cơ sở dữ liệu.</p>
+<h2 id="chạy-processing">Chạy Processing<a class="lien-ket-muc" href="#chạy-processing" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import processing
+
+tham_so = {
+    &quot;INPUT&quot;: lop,
+    &quot;DISTANCE&quot;: 500,
+    &quot;SEGMENTS&quot;: 12,
+    &quot;DISSOLVE&quot;: True,
+    &quot;END_CAP_STYLE&quot;: 0,
+    &quot;JOIN_STYLE&quot;: 0,
+    &quot;MITER_LIMIT&quot;: 2,
+    &quot;OUTPUT&quot;: &quot;TEMPORARY_OUTPUT&quot;,
+}
+
+ket_qua = processing.run(&quot;native:buffer&quot;, tham_so)
+QgsProject.instance().addMapLayer(ket_qua[&quot;OUTPUT&quot;])</code></pre></div>
+<p>Tên và tham số thuật toán có thể kiểm tra trong hộp công cụ Processing bằng lệnh <strong>Sao chép dưới dạng lệnh Python</strong>. Điều này chính xác hơn ghi nhớ.</p>
+<h2 id="chạy-độc-lập-ngoài-qgis">Chạy độc lập ngoài QGIS<a class="lien-ket-muc" href="#chạy-độc-lập-ngoài-qgis" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Python hệ thống thường không tìm thấy <code>qgis</code>. Hãy dùng môi trường Python do QGIS cung cấp và khởi tạo ứng dụng:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from qgis.core import QgsApplication
+
+ung_dung = QgsApplication([], False)
+ung_dung.initQgis()
+
+try:
+    # Nạp nhà cung cấp Processing và chạy công việc tại đây.
+    pass
+finally:
+    ung_dung.exitQgis()</code></pre></div>
+<p>Đường dẫn tiền tố và cách khởi động khác nhau theo hệ điều hành và bản cài. Tham khảo tài liệu chính thức đúng phiên bản QGIS.</p>
+<h2 id="plugin-hay-tập-lệnh">Plugin hay tập lệnh?<a class="lien-ket-muc" href="#plugin-hay-tập-lệnh" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="bang-cuon"><table><thead><tr><th>Nhu cầu</th><th>Hình thức</th></tr></thead><tbody><tr><td>Một lần, một người</td><td>Bảng điều khiển Python</td></tr><tr><td>Quy trình lặp lại</td><td>Tập lệnh Processing</td></tr><tr><td>Công cụ có tham số chuẩn</td><td>Thuật toán Processing</td></tr><tr><td>Giao diện, nút, bản đồ tương tác</td><td>Plugin Python</td></tr><tr><td>Chạy nền tự động</td><td>Ứng dụng PyQGIS độc lập</td></tr></tbody></table></div>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Viết tập lệnh Processing nhận lớp điểm và khoảng cách, tạo vùng đệm hợp nhất, ghi GeoPackage và trả về diện tích.</p>
+<h2 id="tài-liệu-chính">Tài liệu chính<a class="lien-ket-muc" href="#tài-liệu-chính" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li><a href="https://docs.qgis.org/3.44/en/docs/pyqgis_developer_cookbook/" rel="noopener noreferrer">PyQGIS Developer Cookbook 3.44</a></li>
+<li><a href="https://qgis.org/pyqgis/" rel="noopener noreferrer">Tài liệu API PyQGIS</a></li>
+</ul></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="truc-quan-hoa-ban-do.html"><small>← Chương trước</small>Trực quan hóa và bản đồ tương tác</a><a href="osm-va-nen-tang-dam-may.html"><small>Chương tiếp →</small>OpenStreetMap và nền tảng địa không gian đám mây</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#bảng-điều-khiển-python">Bảng điều khiển Python</a><a class="cap-2" href="#duyệt-đối-tượng-có-bộ-lọc">Duyệt đối tượng có bộ lọc</a><a class="cap-2" href="#chạy-processing">Chạy Processing</a><a class="cap-2" href="#chạy-độc-lập-ngoài-qgis">Chạy độc lập ngoài QGIS</a><a class="cap-2" href="#plugin-hay-tập-lệnh">Plugin hay tập lệnh?</a><a class="cap-2" href="#bài-tập">Bài tập</a><a class="cap-2" href="#tài-liệu-chính">Tài liệu chính</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Tạo, kiểm tra và thao tác điểm, đường, vùng bằng mô hình hình học chuẩn của hệ sinh thái Python GIS.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hình học không gian với Shapely">
+  <meta property="og:description" content="Tạo, kiểm tra và thao tác điểm, đường, vùng bằng mô hình hình học chuẩn của hệ sinh thái Python GIS.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/hinh-hoc-voi-shapely.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/hinh-hoc-voi-shapely.html">
+  <title>Hình học không gian với Shapely · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html" class="hien-tai" aria-current="page">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Vector / Chương 6</div>
+  <h1 class="tieu-de-trang">Hình học không gian với Shapely</h1>
+  <p class="tom-tat">Tạo, kiểm tra và thao tác điểm, đường, vùng bằng mô hình hình học chuẩn của hệ sinh thái Python GIS.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="mô-hình-hình-học">Mô hình hình học<a class="lien-ket-muc" href="#mô-hình-hình-học" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Shapely làm việc với hình học phẳng: <code>Point</code>, <code>LineString</code>, <code>Polygon</code> và các dạng nhiều phần. Thư viện không tự hiểu hệ tọa độ; đơn vị của kết quả chính là đơn vị tọa độ đầu vào.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from shapely import LineString, Point, Polygon
+
+tram = Point(500_000, 1_133_000)
+tuyen = LineString([(499_500, 1_132_800), (500_500, 1_133_200)])
+khu_vuc = Polygon(
+    [
+        (499_800, 1_132_700),
+        (500_600, 1_132_700),
+        (500_600, 1_133_500),
+        (499_800, 1_133_500),
+    ]
+)
+
+assert khu_vuc.contains(tram)
+print(tuyen.intersection(khu_vuc).length)</code></pre></div>
+<h2 id="quan-hệ-không-gian">Quan hệ không gian<a class="lien-ket-muc" href="#quan-hệ-không-gian" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Các vị từ phổ biến gồm <code>intersects</code>, <code>contains</code>, <code>within</code>, <code>touches</code>, <code>crosses</code>, <code>overlaps</code> và <code>disjoint</code>. Chọn quan hệ theo ngữ nghĩa bài toán:</p>
+<ul>
+<li>Điểm nằm hoàn toàn bên trong vùng: <code>within</code>.</li>
+<li>Hai đối tượng có bất kỳ phần chung nào: <code>intersects</code>.</li>
+<li>Hai vùng chỉ chung ranh: <code>touches</code>.</li>
+<li>Đường đi xuyên qua vùng: <code>crosses</code>.</li>
+</ul>
+<p>Ranh giới không được tính là bên trong đối với <code>contains</code>. Nếu cần chấp nhận cả ranh giới, xem xét <code>covers</code>.</p>
+<h2 id="phép-toán-xây-dựng">Phép toán xây dựng<a class="lien-ket-muc" href="#phép-toán-xây-dựng" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">vung_dem = tram.buffer(500)
+phan_trong = vung_dem.intersection(khu_vuc)
+phan_ngoai = vung_dem.difference(khu_vuc)</code></pre></div>
+<p>Do số thực dấu phẩy động, phép so sánh diện tích nên dùng dung sai:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import math
+
+assert math.isclose(
+    phan_trong.area + phan_ngoai.area,
+    vung_dem.area,
+    rel_tol=1e-9,
+)</code></pre></div>
+<h2 id="hình-học-không-hợp-lệ">Hình học không hợp lệ<a class="lien-ket-muc" href="#hình-học-không-hợp-lệ" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Polygon tự cắt hoặc vòng biên sai có thể làm overlay thất bại.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from shapely import is_valid, make_valid
+from shapely.validation import explain_validity
+
+if not is_valid(khu_vuc):
+    print(explain_validity(khu_vuc))
+    khu_vuc = make_valid(khu_vuc)</code></pre></div>
+<p><code>make_valid</code> có thể trả về <code>MultiPolygon</code> hoặc <code>GeometryCollection</code>. Sau khi sửa, hãy kiểm tra lại kiểu hình học và ý nghĩa nghiệp vụ, không chỉ kiểm tra cờ hợp lệ.</p>
+<h2 id="hiệu-năng">Hiệu năng<a class="lien-ket-muc" href="#hiệu-năng" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Shapely hỗ trợ thao tác vector hóa trên mảng hình học. Khi tìm ứng viên lân cận trong tập lớn, dùng <code>STRtree</code> thay vì so sánh mọi cặp.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from shapely import STRtree
+
+cac_vung = [vung_dem, khu_vuc]
+chi_muc = STRtree(cac_vung)
+ung_vien = chi_muc.query(tram, predicate=&quot;intersects&quot;)
+print(ung_vien)</code></pre></div>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<ol>
+<li>Tạo tuyến đường và ba vùng hành chính giả lập.</li>
+<li>Tính chiều dài tuyến nằm trong từng vùng.</li>
+<li>Tạo một Polygon tự cắt, kiểm tra nguyên nhân rồi sửa.</li>
+<li>Viết kiểm thử bảo đảm tổng chiều dài các đoạn không vượt quá chiều dài tuyến ban đầu.</li>
+</ol></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="he-toa-do-va-phep-chieu.html"><small>← Chương trước</small>Hệ tọa độ và phép chiếu với PyProj</a><a href="phan-tich-vector-geopandas.html"><small>Chương tiếp →</small>Phân tích vector với GeoPandas</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#quan-hệ-không-gian">Quan hệ không gian</a><a class="cap-2" href="#phép-toán-xây-dựng">Phép toán xây dựng</a><a class="cap-2" href="#hình-học-không-hợp-lệ">Hình học không hợp lệ</a><a class="cap-2" href="#hiệu-năng">Hiệu năng</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

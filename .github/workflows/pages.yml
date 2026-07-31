@@ -1,0 +1,49 @@
+name: Triển khai website
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  dung:
+    environment:
+      name: github-pages
+      url: ${{ steps.trien-khai.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy mã nguồn
+        uses: actions/checkout@v6
+
+      - name: Thiết lập Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Cài trình dựng
+        run: python -m pip install .
+
+      - name: Dựng HTML bằng Python
+        run: pygis-vn dung --dia-chi-goc https://webgis-vinhlong.github.io/PyGIS
+
+      - name: Cấu hình GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Đóng gói website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+      - name: Triển khai
+        id: trien-khai
+        uses: actions/deploy-pages@v5

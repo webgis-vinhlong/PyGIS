@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Chọn đúng vector, raster, lưới đa chiều và định dạng lưu trữ cho từng quy mô dự án.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Mô hình dữ liệu và định dạng GIS">
+  <meta property="og:description" content="Chọn đúng vector, raster, lưới đa chiều và định dạng lưu trữ cho từng quy mô dự án.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/mo-hinh-du-lieu-khong-gian.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/mo-hinh-du-lieu-khong-gian.html">
+  <title>Mô hình dữ liệu và định dạng GIS · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html" class="hien-tai" aria-current="page">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Nền tảng / Chương 4</div>
+  <h1 class="tieu-de-trang">Mô hình dữ liệu và định dạng GIS</h1>
+  <p class="tom-tat">Chọn đúng vector, raster, lưới đa chiều và định dạng lưu trữ cho từng quy mô dự án.</p>
+  <div class="thong-tin"><span>⏱ 3 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="vector-raster-và-mảng-đa-chiều">Vector, raster và mảng đa chiều<a class="lien-ket-muc" href="#vector-raster-và-mảng-đa-chiều" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Vector mô tả các đối tượng rời rạc bằng điểm, đường, vùng. Raster chia không gian thành lưới ô và phù hợp với hiện tượng liên tục như độ cao, nhiệt độ hoặc phản xạ phổ. Xarray mở rộng mảng raster thành dữ liệu nhiều chiều có nhãn thời gian, độ cao, band và tọa độ.</p>
+<div class="bang-cuon"><table><thead><tr><th>Mô hình</th><th>Phù hợp</th><th>Không phù hợp</th></tr></thead><tbody><tr><td>Điểm</td><td>Trạm đo, cây, sự kiện</td><td>Đối tượng có kích thước đáng kể</td></tr><tr><td>Đường</td><td>Đường giao thông, sông</td><td>Hiện tượng phủ kín bề mặt</td></tr><tr><td>Vùng</td><td>Thửa đất, hành chính</td><td>Biến đổi liên tục trong vùng</td></tr><tr><td>Raster</td><td>Ảnh vệ tinh, DEM, khí hậu</td><td>Ranh giới pháp lý cần độ chính xác cao</td></tr><tr><td>Mảng đa chiều</td><td>Chuỗi thời gian, mô hình khí hậu</td><td>Tệp nhỏ chỉ có một lớp</td></tr></tbody></table></div>
+<h2 id="thuộc-tính-và-hình-học">Thuộc tính và hình học<a class="lien-ket-muc" href="#thuộc-tính-và-hình-học" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Một lớp vector gồm hình học và bảng thuộc tính. Mỗi hàng phải đại diện đúng một đơn vị quan sát. Khóa định danh cần ổn định và không nên được suy ra từ số thứ tự dòng.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import geopandas as gpd
+
+lop = gpd.read_file(&quot;du_lieu/goc/ranh_gioi.gpkg&quot;, layer=&quot;xa&quot;)
+
+assert lop.crs is not None
+assert lop[&quot;ma_xa&quot;].is_unique
+assert lop.geometry.notna().all()
+assert (~lop.geometry.is_empty).all()</code></pre></div>
+<h2 id="chọn-định-dạng">Chọn định dạng<a class="lien-ket-muc" href="#chọn-định-dạng" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li><strong>GeoPackage</strong>: mặc định tốt cho dữ liệu vector cục bộ; một tệp chứa nhiều lớp, hỗ trợ chỉ mục.</li>
+<li><strong>GeoParquet</strong>: phù hợp xử lý phân tích và dữ liệu lớn; nén tốt, đọc theo cột.</li>
+<li><strong>GeoJSON</strong>: dễ trao đổi trên web nhưng lớn, kiểu dữ liệu hạn chế, không tối ưu cho phân tích nặng.</li>
+<li><strong>Shapefile</strong>: chỉ dùng khi hệ thống cũ bắt buộc; tên trường ngắn, nhiều tệp thành phần, hạn chế Unicode.</li>
+<li><strong>Cloud Optimized GeoTIFF</strong>: raster có thể đọc theo cửa sổ qua HTTP.</li>
+<li><strong>Zarr</strong>: mảng lớn, nhiều chiều, đọc song song theo khối.</li>
+</ul>
+<aside class="meo">Dùng GeoPackage hoặc GeoParquet cho quy trình mới. Chỉ xuất Shapefile ở bước cuối nếu đối tác yêu cầu.</aside>
+<h2 id="độ-phân-giải-và-tỷ-lệ">Độ phân giải và tỷ lệ<a class="lien-ket-muc" href="#độ-phân-giải-và-tỷ-lệ" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Một raster 10 mét không đảm bảo vị trí chính xác 10 mét. Độ phân giải ô, độ chính xác định vị, phương pháp nội suy và thời điểm thu nhận là các khái niệm khác nhau. Tăng kích thước raster bằng nội suy không tạo thêm thông tin thực.</p>
+<h2 id="quy-tắc-dữ-liệu-gốc">Quy tắc dữ liệu gốc<a class="lien-ket-muc" href="#quy-tắc-dữ-liệu-gốc" aria-label="Liên kết đến mục này">#</a></h2>
+<ol>
+<li>Lưu nguyên tệp tải về và tổng kiểm SHA-256 nếu dữ liệu quan trọng.</li>
+<li>Ghi nguồn, giấy phép, ngày tải, hệ tọa độ và phiên bản.</li>
+<li>Không chỉnh tay dữ liệu gốc trong QGIS rồi ghi đè.</li>
+<li>Ghi mọi phép sửa hình học hoặc đổi kiểu cột thành mã.</li>
+<li>Xuất dữ liệu đã xử lý sang thư mục riêng.</li>
+</ol>
+<h2 id="kiểm-kê-nhanh">Kiểm kê nhanh<a class="lien-ket-muc" href="#kiểm-kê-nhanh" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from pathlib import Path
+import geopandas as gpd
+
+for duong_dan in Path(&quot;du_lieu/goc&quot;).glob(&quot;*.gpkg&quot;):
+    for ten_lop in gpd.list_layers(duong_dan)[&quot;name&quot;]:
+        lop = gpd.read_file(duong_dan, layer=ten_lop)
+        print(duong_dan.name, ten_lop, len(lop), lop.crs, lop.geom_type.unique())</code></pre></div>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Chọn ba bộ dữ liệu cho một bài toán ngập đô thị. Với mỗi bộ, ghi mô hình dữ liệu, định dạng, độ phân giải hoặc tỷ lệ, thời điểm, giấy phép và hạn chế sử dụng.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="python-cho-du-lieu-gis.html"><small>← Chương trước</small>Python, NumPy và Pandas cho GIS</a><a href="he-toa-do-va-phep-chieu.html"><small>Chương tiếp →</small>Hệ tọa độ và phép chiếu với PyProj</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#thuộc-tính-và-hình-học">Thuộc tính và hình học</a><a class="cap-2" href="#chọn-định-dạng">Chọn định dạng</a><a class="cap-2" href="#độ-phân-giải-và-tỷ-lệ">Độ phân giải và tỷ lệ</a><a class="cap-2" href="#quy-tắc-dữ-liệu-gốc">Quy tắc dữ liệu gốc</a><a class="cap-2" href="#kiểm-kê-nhanh">Kiểm kê nhanh</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

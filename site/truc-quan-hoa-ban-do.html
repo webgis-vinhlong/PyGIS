@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Thiết kế bản đồ tĩnh và tương tác có phân cấp thị giác, chú giải đúng và khả năng tiếp cận tốt.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Trực quan hóa và bản đồ tương tác">
+  <meta property="og:description" content="Thiết kế bản đồ tĩnh và tương tác có phân cấp thị giác, chú giải đúng và khả năng tiếp cận tốt.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/truc-quan-hoa-ban-do.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/truc-quan-hoa-ban-do.html">
+  <title>Trực quan hóa và bản đồ tương tác · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html" class="hien-tai" aria-current="page">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Trình bày / Chương 12</div>
+  <h1 class="tieu-de-trang">Trực quan hóa và bản đồ tương tác</h1>
+  <p class="tom-tat">Thiết kế bản đồ tĩnh và tương tác có phân cấp thị giác, chú giải đúng và khả năng tiếp cận tốt.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="bản-đồ-là-một-lập-luận-bằng-hình">Bản đồ là một lập luận bằng hình<a class="lien-ket-muc" href="#bản-đồ-là-một-lập-luận-bằng-hình" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Màu sắc, phân lớp và tỷ lệ có thể thay đổi cách người đọc diễn giải. Hãy bắt đầu từ thông điệp, đối tượng đọc và mức độ bất định thay vì chọn bảng màu trước.</p>
+<h2 id="bản-đồ-tĩnh-với-matplotlib">Bản đồ tĩnh với Matplotlib<a class="lien-ket-muc" href="#bản-đồ-tĩnh-với-matplotlib" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(9, 8), constrained_layout=True)
+xa.plot(
+    column=&quot;ty_le_ngap&quot;,
+    scheme=&quot;quantiles&quot;,
+    k=5,
+    cmap=&quot;Blues&quot;,
+    linewidth=0.35,
+    edgecolor=&quot;#43515c&quot;,
+    legend=True,
+    missing_kwds={&quot;color&quot;: &quot;#d9d9d9&quot;, &quot;label&quot;: &quot;Thiếu dữ liệu&quot;},
+    ax=ax,
+)
+ax.set_title(&quot;Tỷ lệ diện tích ngập theo xã&quot;, loc=&quot;left&quot;, weight=&quot;bold&quot;)
+ax.set_axis_off()
+fig.savefig(&quot;ket_qua/ty_le_ngap.png&quot;, dpi=200, bbox_inches=&quot;tight&quot;)</code></pre></div>
+<p>Phân vị tạo số đối tượng gần bằng nhau trong mỗi lớp nhưng khoảng giá trị có thể khó so sánh giữa nhiều bản đồ. Khoảng đều phù hợp khi miền giá trị có ý nghĩa ổn định. Natural Breaks mô tả cấu trúc dữ liệu nhưng khó đối chiếu giữa các thời điểm.</p>
+<h2 id="bản-đồ-tương-tác-với-folium">Bản đồ tương tác với Folium<a class="lien-ket-muc" href="#bản-đồ-tương-tác-với-folium" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import folium
+
+ban_do = folium.Map(
+    location=[10.25, 105.97],
+    zoom_start=10,
+    tiles=&quot;CartoDB positron&quot;,
+)
+
+folium.GeoJson(
+    xa.to_crs(4326),
+    tooltip=folium.GeoJsonTooltip(fields=[&quot;ten_xa&quot;, &quot;ty_le_ngap&quot;]),
+    name=&quot;Tỷ lệ ngập&quot;,
+).add_to(ban_do)
+
+folium.LayerControl(collapsed=False).add_to(ban_do)
+ban_do.save(&quot;ket_qua/ban_do_ngap.html&quot;)</code></pre></div>
+<p>Không đưa thuộc tính nhạy cảm vào GeoJSON phía trình duyệt. Người dùng có thể tải dữ liệu dù trường đó không hiện trong popup.</p>
+<h2 id="khả-năng-tiếp-cận">Khả năng tiếp cận<a class="lien-ket-muc" href="#khả-năng-tiếp-cận" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Dùng bảng màu có độ sáng thay đổi rõ và thân thiện với người mù màu.</li>
+<li>Không dùng chỉ màu sắc để phân biệt; bổ sung ký hiệu hoặc nhãn.</li>
+<li>Chú giải có đơn vị, khoảng lớp không chồng lấn.</li>
+<li>Văn bản thay thế mô tả thông điệp chính của bản đồ.</li>
+<li>Giữ độ tương phản đủ cao và kích thước chữ phù hợp.</li>
+</ul>
+<h2 id="thành-phần-bắt-buộc">Thành phần bắt buộc<a class="lien-ket-muc" href="#thành-phần-bắt-buộc" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Bản đồ phân tích cần tiêu đề, chú giải, đơn vị, nguồn dữ liệu, thời điểm, hệ quy chiếu khi liên quan và ghi chú phương pháp. Mũi tên Bắc và thước tỷ lệ chỉ thêm khi hữu ích, không phải trang trí mặc định.</p>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Tạo hai bản đồ cùng dữ liệu bằng phân vị và khoảng đều. So sánh thông điệp thị giác, sau đó chọn một cách và biện minh bằng ba câu.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="vien-tham-va-stac.html"><small>← Chương trước</small>Viễn thám, chỉ số phổ và STAC</a><a href="tu-dong-hoa-qgis-voi-pyqgis.html"><small>Chương tiếp →</small>Tự động hóa QGIS với PyQGIS</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#bản-đồ-tĩnh-với-matplotlib">Bản đồ tĩnh với Matplotlib</a><a class="cap-2" href="#bản-đồ-tương-tác-với-folium">Bản đồ tương tác với Folium</a><a class="cap-2" href="#khả-năng-tiếp-cận">Khả năng tiếp cận</a><a class="cap-2" href="#thành-phần-bắt-buộc">Thành phần bắt buộc</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

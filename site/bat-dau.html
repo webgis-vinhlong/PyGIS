@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Hiểu bản chất dữ liệu không gian, chuẩn bị tư duy phân tích và chạy quy trình GIS đầu tiên.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bắt đầu với Python GIS">
+  <meta property="og:description" content="Hiểu bản chất dữ liệu không gian, chuẩn bị tư duy phân tích và chạy quy trình GIS đầu tiên.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/bat-dau.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/bat-dau.html">
+  <title>Bắt đầu với Python GIS · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html" class="hien-tai" aria-current="page">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Khởi động / Chương 1</div>
+  <h1 class="tieu-de-trang">Bắt đầu với Python GIS</h1>
+  <p class="tom-tat">Hiểu bản chất dữ liệu không gian, chuẩn bị tư duy phân tích và chạy quy trình GIS đầu tiên.</p>
+  <div class="thong-tin"><span>⏱ 3 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="mục-tiêu">Mục tiêu<a class="lien-ket-muc" href="#mục-tiêu" aria-label="Liên kết đến mục này">#</a></h1>
+<p>GIS không chỉ là phần mềm vẽ bản đồ. Một quy trình GIS tốt phải trả lời được bốn câu hỏi: dữ liệu mô tả đối tượng nào, chúng nằm ở đâu, quan hệ không gian giữa chúng là gì và kết quả có đủ tin cậy để ra quyết định hay không. Python giúp biến quy trình đó thành mã có thể đọc, kiểm thử, chạy lại và chia sẻ.</p>
+<p>Sau chương này, bạn có thể:</p>
+<ul>
+<li>Phân biệt dữ liệu vector, raster và bảng thuộc tính.</li>
+<li>Nhận biết hệ tọa độ trước khi đo khoảng cách hoặc diện tích.</li>
+<li>Tổ chức một dự án để kết quả có thể tái lập.</li>
+<li>Chạy một phép phân tích vector ngắn bằng GeoPandas.</li>
+</ul>
+<h2 id="bức-tranh-tổng-thể">Bức tranh tổng thể<a class="lien-ket-muc" href="#bức-tranh-tổng-thể" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Một dự án Python GIS thường đi qua sáu bước:</p>
+<ol>
+<li>Xác định câu hỏi và đơn vị phân tích.</li>
+<li>Thu thập dữ liệu cùng giấy phép, thời điểm và nguồn gốc.</li>
+<li>Kiểm tra hình học, trường thuộc tính, giá trị thiếu và hệ tọa độ.</li>
+<li>Chuẩn hóa, phân tích và lượng hóa độ bất định.</li>
+<li>Trực quan hóa kết quả theo đúng ngữ nghĩa bản đồ.</li>
+<li>Lưu mã, tham số, nhật ký và sản phẩm đầu ra.</li>
+</ol>
+<aside class="ghi-chu">Bản đồ đẹp chưa chắc là phân tích đúng. Hãy kiểm tra hệ tọa độ, độ phân giải, thời điểm thu nhận và phạm vi sử dụng trước khi diễn giải.</aside>
+<h2 id="ví-dụ-đầu-tiên">Ví dụ đầu tiên<a class="lien-ket-muc" href="#ví-dụ-đầu-tiên" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Đoạn mã dưới đây tạo ba điểm dịch vụ, chuyển sang hệ tọa độ phẳng phù hợp cho Việt Nam, tạo vùng phục vụ bán kính 500 mét rồi tính tổng diện tích.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import geopandas as gpd
+from shapely.geometry import Point
+
+diem = gpd.GeoDataFrame(
+    {
+        &quot;ten&quot;: [&quot;Trạm A&quot;, &quot;Trạm B&quot;, &quot;Trạm C&quot;],
+        &quot;geometry&quot;: [
+            Point(105.97, 10.25),
+            Point(105.99, 10.24),
+            Point(106.01, 10.26),
+        ],
+    },
+    crs=&quot;EPSG:4326&quot;,
+)
+
+# UTM múi 48 Bắc, đơn vị mét; cần kiểm tra lại theo vùng nghiên cứu thực tế.
+diem_phang = diem.to_crs(&quot;EPSG:32648&quot;)
+vung_phuc_vu = diem_phang.buffer(500)
+
+print(f&quot;Tổng diện tích thô: {vung_phuc_vu.area.sum() / 1_000_000:.2f} km²&quot;)</code></pre></div>
+<p>Kết quả trên là tổng diện tích của từng vùng đệm, nên phần chồng lấn có thể bị tính nhiều lần. Khi câu hỏi yêu cầu diện tích phủ duy nhất, hãy hợp nhất hình học trước:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">vung_hop_nhat = vung_phuc_vu.union_all()
+print(f&quot;Diện tích phủ duy nhất: {vung_hop_nhat.area / 1_000_000:.2f} km²&quot;)</code></pre></div>
+<h2 id="cách-học-hiệu-quả">Cách học hiệu quả<a class="lien-ket-muc" href="#cách-học-hiệu-quả" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Mỗi chương trong giáo trình có ba lớp: khái niệm, mã mẫu và bài tập. Đừng chỉ sao chép mã. Hãy đổi dữ liệu, tham số và dự đoán kết quả trước khi chạy. Khi kết quả khác dự đoán, hãy ghi rõ nguyên nhân.</p>
+<div class="bang-cuon"><table><thead><tr><th>Giai đoạn</th><th>Việc nên làm</th><th>Sản phẩm</th></tr></thead><tbody><tr><td>Đọc</td><td>Ghi lại thuật ngữ và giả định</td><td>Nhật ký học tập</td></tr><tr><td>Chạy</td><td>Tạo môi trường riêng, chạy từng ô lệnh</td><td>Kết quả tái lập</td></tr><tr><td>Thay đổi</td><td>Dùng dữ liệu địa phương, đổi tham số</td><td>Biến thể bài tập</td></tr><tr><td>Giải thích</td><td>Nêu ý nghĩa và giới hạn</td><td>Đoạn kết luận ngắn</td></tr></tbody></table></div>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<ol>
+<li>Thêm một trạm mới vào ví dụ và so sánh diện tích phủ thô với diện tích phủ duy nhất.</li>
+<li>Thử vùng đệm 250, 500 và 1.000 mét; giải thích tác động.</li>
+<li>Viết ba câu mô tả nguồn sai số có thể xuất hiện trong bài toán vùng phục vụ.</li>
+</ol>
+<h2 id="tiêu-chí-hoàn-thành">Tiêu chí hoàn thành<a class="lien-ket-muc" href="#tiêu-chí-hoàn-thành" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Bạn hoàn thành chương khi có thể giải thích vì sao không nên tạo vùng đệm theo mét trực tiếp trên <code>EPSG:4326</code>, đồng thời phân biệt được tổng diện tích các vùng với diện tích hợp nhất.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><span></span><a href="cai-dat-moi-truong.html"><small>Chương tiếp →</small>Cài đặt và quản lý môi trường</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#bức-tranh-tổng-thể">Bức tranh tổng thể</a><a class="cap-2" href="#ví-dụ-đầu-tiên">Ví dụ đầu tiên</a><a class="cap-2" href="#cách-học-hiệu-quả">Cách học hiệu quả</a><a class="cap-2" href="#bài-tập">Bài tập</a><a class="cap-2" href="#tiêu-chí-hoàn-thành">Tiêu chí hoàn thành</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

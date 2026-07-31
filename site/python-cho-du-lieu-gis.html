@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Nắm các kiểu dữ liệu, hàm, mảng và bảng cần thiết để viết mã phân tích không gian rõ ràng.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Python, NumPy và Pandas cho GIS">
+  <meta property="og:description" content="Nắm các kiểu dữ liệu, hàm, mảng và bảng cần thiết để viết mã phân tích không gian rõ ràng.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/python-cho-du-lieu-gis.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/python-cho-du-lieu-gis.html">
+  <title>Python, NumPy và Pandas cho GIS · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html" class="hien-tai" aria-current="page">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Nền tảng / Chương 3</div>
+  <h1 class="tieu-de-trang">Python, NumPy và Pandas cho GIS</h1>
+  <p class="tom-tat">Nắm các kiểu dữ liệu, hàm, mảng và bảng cần thiết để viết mã phân tích không gian rõ ràng.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="python-theo-hướng-dữ-liệu">Python theo hướng dữ liệu<a class="lien-ket-muc" href="#python-theo-hướng-dữ-liệu" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Trong GIS, mã tốt thường là một chuỗi biến đổi dữ liệu nhỏ, có tên rõ nghĩa và kiểm tra được. Hãy ưu tiên hàm thuần, <code>pathlib.Path</code>, kiểu dữ liệu cụ thể và thao tác vector hóa thay vì vòng lặp không cần thiết.</p>
+<h2 id="kiểu-dữ-liệu-và-hàm">Kiểu dữ liệu và hàm<a class="lien-ket-muc" href="#kiểu-dữ-liệu-và-hàm" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class TramDo:
+    ten: str
+    kinh_do: float
+    vi_do: float
+
+
+def nam_trong_viet_nam(tram: TramDo) -&gt; bool:
+    return 102.0 &lt;= tram.kinh_do &lt;= 110.0 and 8.0 &lt;= tram.vi_do &lt;= 24.0
+
+
+tram = TramDo(&quot;Trạm trung tâm&quot;, 105.97, 10.25)
+assert nam_trong_viet_nam(tram)</code></pre></div>
+<p><code>dataclass</code> giúp dữ liệu có cấu trúc. <code>frozen=True</code> ngăn thay đổi ngoài ý muốn, hữu ích khi một đối tượng được truyền qua nhiều bước xử lý.</p>
+<h2 id="numpy-cho-raster">NumPy cho raster<a class="lien-ket-muc" href="#numpy-cho-raster" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Raster thường được biểu diễn bằng mảng NumPy hai hoặc ba chiều. Giá trị không hợp lệ cần được quản lý rõ ràng.</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import numpy as np
+
+band_do = np.array([[0.12, 0.18, 0.20], [0.16, 0.22, np.nan]])
+band_can_hong_ngoai = np.array([[0.42, 0.55, 0.61], [0.49, 0.65, np.nan]])
+
+with np.errstate(divide=&quot;ignore&quot;, invalid=&quot;ignore&quot;):
+    ndvi = (band_can_hong_ngoai - band_do) / (band_can_hong_ngoai + band_do)
+
+print(np.nanmean(ndvi))</code></pre></div>
+<p>Không thay <code>NaN</code> bằng 0 nếu 0 có ý nghĩa vật lý. Hãy giữ mặt nạ dữ liệu thiếu cho đến khi quy tắc thay thế được xác định.</p>
+<h2 id="pandas-cho-thuộc-tính">Pandas cho thuộc tính<a class="lien-ket-muc" href="#pandas-cho-thuộc-tính" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import pandas as pd
+
+bang = pd.DataFrame(
+    {
+        &quot;xa&quot;: [&quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;],
+        &quot;nam&quot;: [2024, 2025, 2024, 2025],
+        &quot;dan_so&quot;: [12_500, 12_900, 9_800, 10_100],
+    }
+)
+
+tong_hop = (
+    bang.assign(tang_truong=bang.groupby(&quot;xa&quot;)[&quot;dan_so&quot;].pct_change())
+    .groupby(&quot;xa&quot;, as_index=False)
+    .agg(dan_so_moi=(&quot;dan_so&quot;, &quot;last&quot;), tang_truong=(&quot;tang_truong&quot;, &quot;last&quot;))
+)</code></pre></div>
+<p>Chuỗi thao tác trên tránh tạo nhiều biến tạm nhưng vẫn giữ được ý nghĩa. Khi chuỗi dài, tách thành các hàm có tên theo nghiệp vụ.</p>
+<h2 id="đường-dẫn-đa-nền-tảng">Đường dẫn đa nền tảng<a class="lien-ket-muc" href="#đường-dẫn-đa-nền-tảng" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from pathlib import Path
+
+thu_muc_goc = Path(__file__).resolve().parents[1]
+duong_dan = thu_muc_goc / &quot;du_lieu&quot; / &quot;goc&quot; / &quot;ranh_gioi.gpkg&quot;
+
+if not duong_dan.exists():
+    raise FileNotFoundError(f&quot;Thiếu dữ liệu: {duong_dan}&quot;)</code></pre></div>
+<h2 id="nguyên-tắc-viết-mã-gis">Nguyên tắc viết mã GIS<a class="lien-ket-muc" href="#nguyên-tắc-viết-mã-gis" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Đặt tên theo ý nghĩa: <code>dien_tich_km2</code> tốt hơn <code>area2</code>.</li>
+<li>Ghi đơn vị trong tên cột hoặc siêu dữ liệu.</li>
+<li>Kiểm tra điều kiện đầu vào bằng <code>assert</code> hoặc ngoại lệ có thông báo.</li>
+<li>Không sửa DataFrame dùng chung nếu chưa chủ động sao chép.</li>
+<li>Tách đọc dữ liệu, phân tích và xuất kết quả thành các hàm riêng.</li>
+</ul>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<ol>
+<li>Tạo bảng lượng mưa theo huyện và tháng, sau đó tính trung bình theo huyện.</li>
+<li>Viết hàm nhận hai mảng raster và trả về NDVI, giữ nguyên <code>NaN</code>.</li>
+<li>Viết kiểm thử cho trường hợp hai band có kích thước khác nhau.</li>
+</ol></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="cai-dat-moi-truong.html"><small>← Chương trước</small>Cài đặt và quản lý môi trường</a><a href="mo-hinh-du-lieu-khong-gian.html"><small>Chương tiếp →</small>Mô hình dữ liệu và định dạng GIS</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#kiểu-dữ-liệu-và-hàm">Kiểu dữ liệu và hàm</a><a class="cap-2" href="#numpy-cho-raster">NumPy cho raster</a><a class="cap-2" href="#pandas-cho-thuộc-tính">Pandas cho thuộc tính</a><a class="cap-2" href="#đường-dẫn-đa-nền-tảng">Đường dẫn đa nền tảng</a><a class="cap-2" href="#nguyên-tắc-viết-mã-gis">Nguyên tắc viết mã GIS</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

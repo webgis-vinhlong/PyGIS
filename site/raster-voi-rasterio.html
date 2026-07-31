@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Đọc siêu dữ liệu, quản lý NoData, cắt, đổi hệ tọa độ và xử lý raster theo cửa sổ.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Xử lý raster với Rasterio">
+  <meta property="og:description" content="Đọc siêu dữ liệu, quản lý NoData, cắt, đổi hệ tọa độ và xử lý raster theo cửa sổ.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/raster-voi-rasterio.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/raster-voi-rasterio.html">
+  <title>Xử lý raster với Rasterio · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html" class="hien-tai" aria-current="page">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Raster / Chương 9</div>
+  <h1 class="tieu-de-trang">Xử lý raster với Rasterio</h1>
+  <p class="tom-tat">Đọc siêu dữ liệu, quản lý NoData, cắt, đổi hệ tọa độ và xử lý raster theo cửa sổ.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="raster-là-mảng-có-vị-trí">Raster là mảng có vị trí<a class="lien-ket-muc" href="#raster-là-mảng-có-vị-trí" aria-label="Liên kết đến mục này">#</a></h1>
+<p>Một raster không chỉ là ma trận số. Nó còn có CRS, phép biến đổi affine, kích thước ô, số band, kiểu dữ liệu và quy ước NoData. Mất bất kỳ phần nào có thể khiến mảng không còn ý nghĩa không gian.</p>
+<h2 id="đọc-có-kiểm-soát">Đọc có kiểm soát<a class="lien-ket-muc" href="#đọc-có-kiểm-soát" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import rasterio
+
+with rasterio.open(&quot;du_lieu/goc/dem.tif&quot;) as nguon:
+    print(nguon.crs)
+    print(nguon.transform)
+    print(nguon.bounds)
+    print(nguon.res)
+    print(nguon.nodata)
+    dem = nguon.read(1, masked=True)
+
+print(float(dem.mean()))</code></pre></div>
+<p><code>masked=True</code> tạo mảng có mặt nạ từ NoData, tránh đưa ô không hợp lệ vào thống kê.</p>
+<h2 id="ghi-và-giữ-hồ-sơ">Ghi và giữ hồ sơ<a class="lien-ket-muc" href="#ghi-và-giữ-hồ-sơ" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">with rasterio.open(&quot;du_lieu/goc/dem.tif&quot;) as nguon:
+    dem = nguon.read(1, masked=True)
+    do_doc = tinh_do_doc(dem, nguon.res)
+    ho_so = nguon.profile.copy()
+    ho_so.update(dtype=&quot;float32&quot;, count=1, nodata=-9999.0, compress=&quot;deflate&quot;)
+
+with rasterio.open(&quot;ket_qua/do_doc.tif&quot;, &quot;w&quot;, **ho_so) as dich:
+    dich.write(do_doc.filled(-9999.0).astype(&quot;float32&quot;), 1)</code></pre></div>
+<p>Hàm <code>tinh_do_doc</code> cần được kiểm thử riêng. Không thay đổi mảng đầu vào trong hàm nếu không ghi rõ.</p>
+<h2 id="cắt-theo-vùng">Cắt theo vùng<a class="lien-ket-muc" href="#cắt-theo-vùng" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">import geopandas as gpd
+from rasterio.mask import mask
+
+ranh = gpd.read_file(&quot;du_lieu/goc/hanh_chinh.gpkg&quot;, layer=&quot;tinh&quot;)
+
+with rasterio.open(&quot;du_lieu/goc/dem.tif&quot;) as nguon:
+    ranh = ranh.to_crs(nguon.crs)
+    mang_cat, bien_doi = mask(
+        nguon,
+        ranh.geometry,
+        crop=True,
+        filled=False,
+    )</code></pre></div>
+<p>Chuyển vector sang CRS raster trước khi cắt. Nếu hai lớp không giao nhau, dừng với thông báo rõ ràng thay vì tạo tệp rỗng.</p>
+<h2 id="đổi-hệ-tọa-độ">Đổi hệ tọa độ<a class="lien-ket-muc" href="#đổi-hệ-tọa-độ" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from rasterio.warp import Resampling, calculate_default_transform, reproject
+
+with rasterio.open(&quot;du_lieu/goc/dem.tif&quot;) as nguon:
+    dich_crs = &quot;EPSG:32648&quot;
+    bien_doi, rong, cao = calculate_default_transform(
+        nguon.crs, dich_crs, nguon.width, nguon.height, *nguon.bounds
+    )
+    ho_so = nguon.profile.copy()
+    ho_so.update(crs=dich_crs, transform=bien_doi, width=rong, height=cao)
+
+    with rasterio.open(&quot;ket_qua/dem_utm.tif&quot;, &quot;w&quot;, **ho_so) as dich:
+        reproject(
+            source=rasterio.band(nguon, 1),
+            destination=rasterio.band(dich, 1),
+            src_transform=nguon.transform,
+            src_crs=nguon.crs,
+            dst_transform=bien_doi,
+            dst_crs=dich_crs,
+            resampling=Resampling.bilinear,
+        )</code></pre></div>
+<p>Ảnh phân loại cần <code>nearest</code> để không tạo lớp mới. Dữ liệu liên tục có thể dùng <code>bilinear</code> hoặc <code>cubic</code>, tùy mục tiêu.</p>
+<h2 id="xử-lý-theo-cửa-sổ">Xử lý theo cửa sổ<a class="lien-ket-muc" href="#xử-lý-theo-cửa-sổ" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Với raster lớn, không đọc toàn bộ vào RAM:</p>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">with rasterio.open(&quot;du_lieu/goc/anh_lon.tif&quot;) as nguon:
+    for _, cua_so in nguon.block_windows(1):
+        khoi = nguon.read(1, window=cua_so, masked=True)
+        # Tính toán và ghi đúng cửa sổ tương ứng.</code></pre></div>
+<h2 id="kiểm-tra-đầu-ra">Kiểm tra đầu ra<a class="lien-ket-muc" href="#kiểm-tra-đầu-ra" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>CRS và bounds đúng.</li>
+<li>Kích thước ô hợp lý.</li>
+<li>Min, max và phân bố không bất thường.</li>
+<li>NoData không bị biến thành giá trị thật.</li>
+<li>Hiển thị chồng lớp tại một số vị trí kiểm tra.</li>
+</ul>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Cắt DEM theo ranh giới nghiên cứu, đổi sang CRS phẳng, tính độ cao trung bình và ghi kết quả dạng GeoTIFF nén.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="quy-trinh-phan-tich-vector.html"><small>← Chương trước</small>Quy trình phân tích vector</a><a href="xarray-rioxarray-dask.html"><small>Chương tiếp →</small>Xarray, Rioxarray, Dask và Zarr</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#đọc-có-kiểm-soát">Đọc có kiểm soát</a><a class="cap-2" href="#ghi-và-giữ-hồ-sơ">Ghi và giữ hồ sơ</a><a class="cap-2" href="#cắt-theo-vùng">Cắt theo vùng</a><a class="cap-2" href="#đổi-hệ-tọa-độ">Đổi hệ tọa độ</a><a class="cap-2" href="#xử-lý-theo-cửa-sổ">Xử lý theo cửa sổ</a><a class="cap-2" href="#kiểm-tra-đầu-ra">Kiểm tra đầu ra</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>

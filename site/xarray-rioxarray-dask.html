@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Phân tích chuỗi thời gian raster có nhãn và mở rộng xử lý theo khối cho dữ liệu lớn.">
+  <meta name="author" content="Long Ngo">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Xarray, Rioxarray, Dask và Zarr">
+  <meta property="og:description" content="Phân tích chuỗi thời gian raster có nhãn và mở rộng xử lý theo khối cho dữ liệu lớn.">
+  <meta property="og:url" content="https://webgis-vinhlong.github.io/PyGIS/xarray-rioxarray-dask.html">
+  <link rel="canonical" href="https://webgis-vinhlong.github.io/PyGIS/xarray-rioxarray-dask.html">
+  <title>Xarray, Rioxarray, Dask và Zarr · Python GIS Việt Nam</title>
+  <link rel="stylesheet" href="tai-nguyen/giao-dien.css">
+</head>
+<body><a class="bo-qua" href="#noi-dung">Bỏ qua điều hướng</a>
+<header class="dau-trang"><div class="thanh">
+  <a class="thuong-hieu" href="index.html">
+    <span class="bieu-tuong"><svg viewBox="0 0 64 64" role="img" aria-label="Biểu tượng các lớp bản đồ">
+<path fill="currentColor" d="M32 5 58 18 32 31 6 18 32 5Zm-19 24 19 9.5L51 29l7 3.5-26 13-26-13 7-3.5Zm0 14 19 9.5L51 43l7 3.5-26 13-26-13 7-3.5Z"/>
+</svg></span><span>Python GIS Việt Nam</span>
+  </a>
+  <nav aria-label="Điều hướng chính">
+    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="tra-cuu.html">Tra cứu</a>
+    <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
+  </nav>
+</div></header><main id="noi-dung" class="bo-cuc">
+<aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html" class="hien-tai" aria-current="page">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Dự án</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Dự án tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
+<article class="noi-dung">
+  <div class="duong-dan">Giáo trình / Raster / Chương 10</div>
+  <h1 class="tieu-de-trang">Xarray, Rioxarray, Dask và Zarr</h1>
+  <p class="tom-tat">Phân tích chuỗi thời gian raster có nhãn và mở rộng xử lý theo khối cho dữ liệu lớn.</p>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="bai-viet"><h1 id="mảng-có-nhãn">Mảng có nhãn<a class="lien-ket-muc" href="#mảng-có-nhãn" aria-label="Liên kết đến mục này">#</a></h1>
+<p>NumPy quản lý mảng hiệu quả nhưng không tự biết chiều nào là thời gian, band, x hay y. Xarray gắn tên, tọa độ và thuộc tính cho từng chiều; Rioxarray bổ sung CRS và phép biến đổi không gian.</p>
+<h2 id="mở-nhiều-raster">Mở nhiều raster<a class="lien-ket-muc" href="#mở-nhiều-raster" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">from pathlib import Path
+import xarray as xr
+import rioxarray
+
+cac_tap_tin = sorted(Path(&quot;du_lieu/goc/ndvi&quot;).glob(&quot;*.tif&quot;))
+cac_lop = [
+    rioxarray.open_rasterio(duong_dan, masked=True).squeeze(&quot;band&quot;, drop=True)
+    for duong_dan in cac_tap_tin
+]
+
+ndvi = xr.concat(cac_lop, dim=&quot;time&quot;)
+ndvi = ndvi.assign_coords(time=[duong_dan.stem for duong_dan in cac_tap_tin])</code></pre></div>
+<p>Trong dự án thật, hãy phân tích ngày tháng từ tên tệp thành <code>datetime64</code>, không giữ dạng chuỗi.</p>
+<h2 id="tính-toán-theo-chiều">Tính toán theo chiều<a class="lien-ket-muc" href="#tính-toán-theo-chiều" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">trung_binh = ndvi.mean(dim=&quot;time&quot;, skipna=True)
+phan_vi_10 = ndvi.quantile(0.1, dim=&quot;time&quot;, skipna=True)
+bat_thuong = ndvi - ndvi.mean(dim=&quot;time&quot;)</code></pre></div>
+<p>Xarray tự căn theo nhãn tọa độ. Nếu các raster không cùng lưới, việc concat có thể tạo dữ liệu thiếu hoặc mở rộng lưới. Cần chuẩn hóa CRS, bounds, kích thước ô và điểm neo trước.</p>
+<h2 id="xử-lý-lười-với-dask">Xử lý lười với Dask<a class="lien-ket-muc" href="#xử-lý-lười-với-dask" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">du_lieu = xr.open_zarr(
+    &quot;du_lieu/goc/khi_hau.zarr&quot;,
+    chunks={&quot;time&quot;: 12, &quot;y&quot;: 1024, &quot;x&quot;: 1024},
+)
+trung_binh_nam = du_lieu[&quot;mua&quot;].resample(time=&quot;YS&quot;).sum().mean(&quot;time&quot;)
+ket_qua = trung_binh_nam.compute()</code></pre></div>
+<p>Dask dựng đồ thị tác vụ và chỉ tính khi gọi <code>compute</code>. Kích thước chunk ảnh hưởng mạnh đến bộ nhớ và chi phí lập lịch.</p>
+<h2 id="ghi-zarr">Ghi Zarr<a class="lien-ket-muc" href="#ghi-zarr" aria-label="Liên kết đến mục này">#</a></h2>
+<div class="khoi-ma"><span class="nhan-ma">python</span><pre><code class="language-python">ndvi.to_dataset(name=&quot;ndvi&quot;).chunk(
+    {&quot;time&quot;: 12, &quot;y&quot;: 1024, &quot;x&quot;: 1024}
+).to_zarr(&quot;du_lieu/da_xu_ly/ndvi.zarr&quot;, mode=&quot;w&quot;)</code></pre></div>
+<p>Zarr phù hợp cho mảng đám mây và truy cập song song. Với sản phẩm cuối là một raster, Cloud Optimized GeoTIFF có thể đơn giản hơn.</p>
+<h2 id="nguyên-tắc-dữ-liệu-lớn">Nguyên tắc dữ liệu lớn<a class="lien-ket-muc" href="#nguyên-tắc-dữ-liệu-lớn" aria-label="Liên kết đến mục này">#</a></h2>
+<ul>
+<li>Lọc theo thời gian, vùng và band càng sớm càng tốt.</li>
+<li>Đọc siêu dữ liệu trước khi đọc pixel.</li>
+<li>Chọn chunk theo kiểu truy vấn thường gặp.</li>
+<li>Tránh gọi <code>compute()</code> nhiều lần trên cùng đồ thị.</li>
+<li>Ghi sản phẩm trung gian đắt đỏ nếu sẽ tái sử dụng.</li>
+<li>Đo hiệu năng trên mẫu đại diện, không suy đoán.</li>
+</ul>
+<h2 id="bài-tập">Bài tập<a class="lien-ket-muc" href="#bài-tập" aria-label="Liên kết đến mục này">#</a></h2>
+<p>Tạo chuỗi 12 raster giả lập, gắn thời gian hàng tháng, tính trung bình năm và tháng có giá trị cực đại cho mỗi ô.</p></div>
+  <nav class="dieu-huong" aria-label="Chuyển chương"><a href="raster-voi-rasterio.html"><small>← Chương trước</small>Xử lý raster với Rasterio</a><a href="vien-tham-va-stac.html"><small>Chương tiếp →</small>Viễn thám, chỉ số phổ và STAC</a></nav>
+</article>
+<aside class="muc-trang" aria-label="Mục lục trang"><h2>Trong chương</h2><a class="cap-2" href="#mở-nhiều-raster">Mở nhiều raster</a><a class="cap-2" href="#tính-toán-theo-chiều">Tính toán theo chiều</a><a class="cap-2" href="#xử-lý-lười-với-dask">Xử lý lười với Dask</a><a class="cap-2" href="#ghi-zarr">Ghi Zarr</a><a class="cap-2" href="#nguyên-tắc-dữ-liệu-lớn">Nguyên tắc dữ liệu lớn</a><a class="cap-2" href="#bài-tập">Bài tập</a></aside>
+</main><footer class="chan-trang"><div>
+  <span>© 2026 Long Ngo · Phát hành theo giấy phép MIT.</span>
+  <span>Viết bằng Python · Dành cho cộng đồng GIS Việt Nam.</span>
+</div></footer></body>
+</html>
