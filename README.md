@@ -9,10 +9,11 @@
 [![Kiểm tra chất lượng](https://github.com/webgis-vinhlong/PyGIS/actions/workflows/quality.yml/badge.svg)](https://github.com/webgis-vinhlong/PyGIS/actions/workflows/quality.yml)
 [![Triển khai website](https://github.com/webgis-vinhlong/PyGIS/actions/workflows/pages.yml/badge.svg)](https://github.com/webgis-vinhlong/PyGIS/actions/workflows/pages.yml)
 
-**20 chương · 70 thư viện · Python thuần · 100% nội dung tiếng Việt**
+**20 chương · 70+ thư viện · Học trực tuyến · Python thuần · 100% tiếng Việt**
 
-[🌐 Mở website](https://webgis-vinhlong.github.io/PyGIS/) ·
-[🚀 Bắt đầu trong 5 phút](#-chạy-trong-5-phút) ·
+[🌐 Đọc ebook](https://webgis-vinhlong.github.io/PyGIS/) ·
+[☁️ Học không cần cài đặt](https://webgis-vinhlong.github.io/PyGIS/hoc-truc-tuyen.html) ·
+[▶️ Mở Google Colab](https://colab.research.google.com/github/webgis-vinhlong/PyGIS/blob/main/notebooks/PyGIS_Hoc_Truc_Tuyen.ipynb) ·
 [🤝 Đóng góp](https://github.com/webgis-vinhlong/PyGIS/blob/main/CONTRIBUTING.md)
 
 **🤝 Hoan nghênh cộng đồng góp ý và chỉnh sửa trên GitHub.**
@@ -24,6 +25,9 @@
 ## 🌱 Giới thiệu
 
 Python GIS Việt Nam là website học tập mã nguồn mở dành cho sinh viên, chuyên viên GIS, nhà nghiên cứu và lập trình viên muốn xây dựng quy trình phân tích không gian có thể tái lập.
+
+Người học có thể đọc toàn bộ ebook và chạy notebook trên Google Colab chỉ bằng
+trình duyệt. **Không cần cài Python, QGIS, GDAL hay thư viện GIS vào máy tính.**
 
 Mọi ý kiến, đề xuất nội dung và bản chỉnh sửa đều được hoan nghênh tại
 [GitHub Discussions, Issues và Pull Requests](https://github.com/webgis-vinhlong/PyGIS).

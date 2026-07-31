@@ -22,7 +22,8 @@
 </svg></span><span>Python GIS Việt Nam</span>
   </a>
   <nav aria-label="Điều hướng chính">
-    <a href="index.html#lo-trinh">Lộ trình</a>
+    <a href="index.html#lo-trinh">Mục lục</a>
+    <a href="hoc-truc-tuyen.html">Học trực tuyến</a>
     <a href="tra-cuu.html">Tra cứu</a>
     <a href="https://github.com/webgis-vinhlong/PyGIS/blob/main/CONTRIBUTING.md">Đóng góp</a>
     <a href="https://github.com/webgis-vinhlong/PyGIS">Mã nguồn</a>
@@ -30,10 +31,20 @@
 </div></header><main id="noi-dung" class="bo-cuc">
 <aside class="ben-trai" aria-label="Danh sách chương"><p class="nhan-nhom">Khởi động</p><ul class="danh-sach-chuong"><li><a href="bat-dau.html">01. Bắt đầu với Python GIS</a></li><li><a href="cai-dat-moi-truong.html">02. Cài đặt và quản lý môi trường</a></li></ul><p class="nhan-nhom">Nền tảng</p><ul class="danh-sach-chuong"><li><a href="python-cho-du-lieu-gis.html">03. Python, NumPy và Pandas cho GIS</a></li><li><a href="mo-hinh-du-lieu-khong-gian.html">04. Mô hình dữ liệu và định dạng GIS</a></li><li><a href="he-toa-do-va-phep-chieu.html" class="hien-tai" aria-current="page">05. Hệ tọa độ và phép chiếu với PyProj</a></li></ul><p class="nhan-nhom">Vector</p><ul class="danh-sach-chuong"><li><a href="hinh-hoc-voi-shapely.html">06. Hình học không gian với Shapely</a></li><li><a href="phan-tich-vector-geopandas.html">07. Phân tích vector với GeoPandas</a></li><li><a href="quy-trinh-phan-tich-vector.html">08. Quy trình phân tích vector</a></li></ul><p class="nhan-nhom">Raster</p><ul class="danh-sach-chuong"><li><a href="raster-voi-rasterio.html">09. Xử lý raster với Rasterio</a></li><li><a href="xarray-rioxarray-dask.html">10. Xarray, Rioxarray, Dask và Zarr</a></li></ul><p class="nhan-nhom">Viễn thám</p><ul class="danh-sach-chuong"><li><a href="vien-tham-va-stac.html">11. Viễn thám, chỉ số phổ và STAC</a></li></ul><p class="nhan-nhom">Trình bày</p><ul class="danh-sach-chuong"><li><a href="truc-quan-hoa-ban-do.html">12. Trực quan hóa và bản đồ tương tác</a></li></ul><p class="nhan-nhom">Ứng dụng</p><ul class="danh-sach-chuong"><li><a href="tu-dong-hoa-qgis-voi-pyqgis.html">13. Tự động hóa QGIS với PyQGIS</a></li><li><a href="osm-va-nen-tang-dam-may.html">14. OpenStreetMap và nền tảng địa không gian đám mây</a></li></ul><p class="nhan-nhom">Nâng cao</p><ul class="danh-sach-chuong"><li><a href="geoai-hoc-may-khong-gian.html">15. GeoAI và học máy không gian</a></li><li><a href="xuat-ban-webgis.html">16. Xuất bản WebGIS từ Python</a></li><li><a href="kiem-thu-va-tai-lap.html">17. Kiểm thử, hiệu năng và khả năng tái lập</a></li></ul><p class="nhan-nhom">Công cụ</p><ul class="danh-sach-chuong"><li><a href="du-an-tong-hop-vinh-long.html">18. Công cụ tổng hợp tại Vĩnh Long</a></li></ul><p class="nhan-nhom">Tra cứu</p><ul class="danh-sach-chuong"><li><a href="danh-muc-thu-vien-python-gis.html">19. Danh mục 70 thư viện Python GIS</a></li><li><a href="tai-lieu-va-ghi-cong.html">20. Tài liệu tham khảo và ghi công</a></li></ul></aside>
 <article class="noi-dung">
-  <div class="duong-dan">Tài liệu / Nền tảng / Chương 5</div>
+  <div class="duong-dan"><a href="index.html">Ebook</a> / Nền tảng / Chương 5</div>
   <h1 class="tieu-de-trang">Hệ tọa độ và phép chiếu với PyProj</h1>
   <p class="tom-tat">Hiểu CRS, trục tọa độ, đơn vị đo và lựa chọn phép chiếu phù hợp trước mọi phép tính hình học.</p>
-  <div class="thong-tin"><span>⏱ 2 phút đọc</span><span>✍ Long Ngo</span></div>
+  <div class="thong-tin"><span>⏱ 2 phút đọc</span>
+    <span>📖 Chương 5/20</span><span>✍ Long Ngo</span></div>
+  <div class="tien-do" role="progressbar" aria-label="Tiến độ lộ trình"
+    aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+    <span style="width:25%"></span>
+  </div>
+  <section class="hop-hoc">
+    <div><strong>Học ngay trên trình duyệt</strong>
+      <span>Đọc lý thuyết tại đây, sau đó thực hành bằng môi trường Python đám mây.</span></div>
+    <a class="nut nho" href="https://colab.research.google.com/github/webgis-vinhlong/PyGIS/blob/main/notebooks/PyGIS_Hoc_Truc_Tuyen.ipynb" rel="noopener noreferrer">Mở Google Colab ↗</a>
+  </section>
   <div class="bai-viet"><h1 id="crs-là-một-phần-của-dữ-liệu">CRS là một phần của dữ liệu<a class="lien-ket-muc" href="#crs-là-một-phần-của-dữ-liệu" aria-label="Liên kết đến mục này">#</a></h1>
 <p>Một cặp số chỉ trở thành tọa độ khi biết hệ quy chiếu, thứ tự trục và đơn vị. <code>EPSG:4326</code> thường dùng kinh độ, vĩ độ theo WGS 84; đơn vị là độ. Các phép đo mét vuông hoặc khoảng cách mét cần CRS phẳng phù hợp với khu vực và mục đích.</p>
 <h2 id="gán-khác-với-chuyển-đổi">Gán khác với chuyển đổi<a class="lien-ket-muc" href="#gán-khác-với-chuyển-đổi" aria-label="Liên kết đến mục này">#</a></h2>

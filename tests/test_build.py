@@ -35,5 +35,8 @@ def test_dung_website_day_du(tmp_path: Path) -> None:
     assert len(cac_tap_tin) >= 20
     trang_chu = (dich / "index.html").read_text(encoding="utf-8")
     assert '<html lang="vi">' in trang_chu
-    assert "Phân tích GIS" in trang_chu
+    assert "Python GIS" in trang_chu
+    assert "không cần cài Python" in trang_chu
+    assert (dich / "hoc-truc-tuyen.html").exists()
+    assert "Google Colab" in (dich / "hoc-truc-tuyen.html").read_text(encoding="utf-8")
     assert (dich / "tai-nguyen" / "giao-dien.css").stat().st_size > 5_000
