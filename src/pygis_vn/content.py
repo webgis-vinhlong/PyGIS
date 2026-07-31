@@ -1,4 +1,4 @@
-"""Đọc nội dung giáo trình từ Markdown có siêu dữ liệu tối giản."""
+"""Đọc nội dung tài liệu từ Markdown có siêu dữ liệu tối giản."""
 
 from pathlib import Path
 

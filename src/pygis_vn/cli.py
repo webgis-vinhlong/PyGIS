@@ -15,7 +15,7 @@ from pygis_vn.render import dung_website
 def _bo_phan_tich() -> argparse.ArgumentParser:
     bo = argparse.ArgumentParser(
         prog="pygis-vn",
-        description="Dựng và xem trước giáo trình Phân tích GIS với Python.",
+        description="Dựng và xem trước tài liệu Phân tích GIS với Python.",
     )
     lenh = bo.add_subparsers(dest="lenh", required=True)
     dung = lenh.add_parser("dung", help="Dựng website HTML tĩnh")

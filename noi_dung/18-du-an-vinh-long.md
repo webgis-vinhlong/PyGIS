@@ -1,8 +1,8 @@
 ---
 thu_tu: 18
 dinh_danh: du-an-tong-hop-vinh-long
-tieu_de: Dự án tổng hợp tại Vĩnh Long
-nhom: Dự án
+tieu_de: Công cụ tổng hợp tại Vĩnh Long
+nhom: Công cụ
 tom_tat: Kết hợp toàn bộ kỹ năng để xây dựng bản đồ khả năng tiếp cận dịch vụ công có dữ liệu, kiểm thử và báo cáo.
 ---
 # Đề bài

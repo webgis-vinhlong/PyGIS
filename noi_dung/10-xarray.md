@@ -26,7 +26,7 @@ ndvi = xr.concat(cac_lop, dim="time")
 ndvi = ndvi.assign_coords(time=[duong_dan.stem for duong_dan in cac_tap_tin])
 ```
 
-Trong dự án thật, hãy phân tích ngày tháng từ tên tệp thành `datetime64`, không giữ dạng chuỗi.
+Trong công cụ thật, hãy phân tích ngày tháng từ tên tệp thành `datetime64`, không giữ dạng chuỗi.
 
 ## Tính toán theo chiều
 

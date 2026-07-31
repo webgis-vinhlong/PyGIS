@@ -44,7 +44,7 @@ def _tao_bang(cac_dong: list[str]) -> str:
 
 
 def chuyen_markdown(van_ban: str) -> tuple[str, list[tuple[int, str, str]]]:
-    """Chuyển tập con Markdown cần cho giáo trình thành HTML an toàn."""
+    """Chuyển tập con Markdown cần cho tài liệu thành HTML an toàn."""
 
     dong = van_ban.splitlines()
     html_ra: list[str] = []

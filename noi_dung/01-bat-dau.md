@@ -13,12 +13,12 @@ Sau chương này, bạn có thể:
 
 - Phân biệt dữ liệu vector, raster và bảng thuộc tính.
 - Nhận biết hệ tọa độ trước khi đo khoảng cách hoặc diện tích.
-- Tổ chức một dự án để kết quả có thể tái lập.
+- Tổ chức một công cụ để kết quả có thể tái lập.
 - Chạy một phép phân tích vector ngắn bằng GeoPandas.
 
 ## Bức tranh tổng thể
 
-Một dự án Python GIS thường đi qua sáu bước:
+Một công cụ Python GIS thường đi qua sáu bước:
 
 1. Xác định câu hỏi và đơn vị phân tích.
 2. Thu thập dữ liệu cùng giấy phép, thời điểm và nguồn gốc.
@@ -65,7 +65,7 @@ print(f"Diện tích phủ duy nhất: {vung_hop_nhat.area / 1_000_000:.2f} km²
 
 ## Cách học hiệu quả
 
-Mỗi chương trong giáo trình có ba lớp: khái niệm, mã mẫu và bài tập. Đừng chỉ sao chép mã. Hãy đổi dữ liệu, tham số và dự đoán kết quả trước khi chạy. Khi kết quả khác dự đoán, hãy ghi rõ nguyên nhân.
+Mỗi chương trong tài liệu có ba lớp: khái niệm, mã mẫu và bài tập. Đừng chỉ sao chép mã. Hãy đổi dữ liệu, tham số và dự đoán kết quả trước khi chạy. Khi kết quả khác dự đoán, hãy ghi rõ nguyên nhân.
 
 | Giai đoạn | Việc nên làm | Sản phẩm |
 |---|---|---|

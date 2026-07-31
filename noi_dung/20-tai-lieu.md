@@ -7,7 +7,7 @@ tom_tat: Các nguồn chính thống để học sâu hơn cùng nguyên tắc t
 ---
 # Nguồn học tập chính
 
-Giáo trình này là công trình độc lập, được biên soạn mới bằng tiếng Việt và không sao chép nguyên văn các nguồn dưới đây. Các nguồn được dùng để đối chiếu phạm vi chủ đề và hướng người học đến tài liệu chuyên sâu.
+Tài liệu này là công trình độc lập, được biên soạn mới bằng tiếng Việt và không sao chép nguyên văn các nguồn dưới đây. Các nguồn được dùng để đối chiếu phạm vi chủ đề và hướng người học đến tài liệu chuyên sâu.
 
 ## Tài liệu chính thức
 
@@ -22,7 +22,7 @@ Giáo trình này là công trình độc lập, được biên soạn mới b�
 - [Google Earth Engine Python guide](https://developers.google.com/earth-engine/guides/python_install)
 - [STAC specification](https://stacspec.org/)
 
-## Giáo trình và dự án tham khảo
+## Tài liệu và công cụ tham khảo
 
 - [Python GIS Book](https://pythongis.org/)
 - [PyGIS: Open Source Spatial Programming and Remote Sensing](https://pygis.io/docs/a_intro.html)
@@ -31,11 +31,11 @@ Giáo trình này là công trình độc lập, được biên soạn mới b�
 
 ## Lưu ý thương hiệu
 
-Tên repository `PyGIS` do chủ repository lựa chọn. Website sử dụng tên hiển thị **Python GIS Việt Nam**, biểu tượng riêng và không sử dụng logo của dự án PyGIS™. Dự án này không liên kết, không được tài trợ và không được chứng thực bởi các tác giả của pygis.io, QGIS, OpenGeo hoặc các nhà cung cấp được nhắc đến.
+Tên repository `PyGIS` do chủ repository lựa chọn. Website sử dụng tên hiển thị **Python GIS Việt Nam**, biểu tượng riêng và không sử dụng logo của công cụ PyGIS™. Công cụ này không liên kết, không được tài trợ và không được chứng thực bởi các tác giả của pygis.io, QGIS, OpenGeo hoặc các nhà cung cấp được nhắc đến.
 
 ## Giấy phép
 
-Mã nguồn và nội dung do dự án này biên soạn được phát hành theo MIT. Tên, logo, tài liệu, dữ liệu và mã của bên thứ ba vẫn thuộc giấy phép và chính sách thương hiệu tương ứng. Liên kết tham khảo không chuyển giấy phép của nội dung bên ngoài sang MIT.
+Mã nguồn và nội dung do công cụ này biên soạn được phát hành theo MIT. Tên, logo, tài liệu, dữ liệu và mã của bên thứ ba vẫn thuộc giấy phép và chính sách thương hiệu tương ứng. Liên kết tham khảo không chuyển giấy phép của nội dung bên ngoài sang MIT.
 
 ## Cách ghi công dữ liệu
 

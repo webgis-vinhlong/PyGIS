@@ -15,7 +15,7 @@ tom_tat: Chọn kiến trúc tĩnh, dịch vụ API hoặc vector tile và tối
 | Dữ liệu vector lớn | Tile | Tippecanoe hoặc PMTiles trong quy trình |
 | Raster lớn | COG và tile động | TiTiler, Rasterio |
 
-Website giáo trình này dùng trình dựng Python và HTML tĩnh vì nội dung ít thay đổi theo người dùng, chi phí lưu trữ thấp và có thể phục vụ bằng GitHub Pages.
+Website tài liệu này dùng trình dựng Python và HTML tĩnh vì nội dung ít thay đổi theo người dùng, chi phí lưu trữ thấp và có thể phục vụ bằng GitHub Pages.
 
 ## API tối giản
 

@@ -12,7 +12,7 @@ class CauHinh:
     thu_muc_dich: Path
     dia_chi_goc: str = ""
     tieu_de: str = "Python GIS Việt Nam"
-    mo_ta: str = "Giáo trình mở về phân tích dữ liệu không gian với Python"
+    mo_ta: str = "Tài liệu mở về phân tích dữ liệu không gian với Python"
     tac_gia: str = "Long Ngo"
     kho_ma_nguon: str = "https://github.com/webgis-vinhlong/PyGIS"
 

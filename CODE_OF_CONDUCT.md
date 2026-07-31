@@ -15,6 +15,6 @@ Chúng tôi cam kết xây dựng môi trường học tập cởi mở, an toà
 - Quấy rối, kỳ thị, đe dọa hoặc tiết lộ thông tin cá nhân.
 - Đăng dữ liệu nhạy cảm, bí mật hoặc không có quyền chia sẻ.
 - Đạo văn, giả mạo nguồn hoặc cố ý đưa thông tin sai.
-- Lạm dụng kênh dự án để quảng cáo hoặc gây gián đoạn.
+- Lạm dụng kênh công cụ để quảng cáo hoặc gây gián đoạn.
 
 Người duy trì có quyền chỉnh sửa hoặc loại bỏ nội dung vi phạm và hạn chế người liên tục gây hại cho cộng đồng. Hãy báo cáo riêng cho người duy trì repository; không đăng thêm thông tin nhạy cảm trong issue công khai.

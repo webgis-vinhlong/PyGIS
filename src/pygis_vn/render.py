@@ -24,6 +24,7 @@ def _dau_trang(cau_hinh: CauHinh, tien_to: str = "") -> str:
   <nav aria-label="Điều hướng chính">
     <a href="{tien_to}index.html#lo-trinh">Lộ trình</a>
     <a href="{tien_to}tra-cuu.html">Tra cứu</a>
+    <a href="{cau_hinh.kho_ma_nguon}/blob/main/CONTRIBUTING.md">Đóng góp</a>
     <a href="{cau_hinh.kho_ma_nguon}">Mã nguồn</a>
   </nav>
 </div></header>"""
@@ -119,7 +120,7 @@ def _trang_chuong(
     noi_dung = f"""<main id="noi-dung" class="bo-cuc">
 {_dieu_huong_ben(chuong, cac_chuong)}
 <article class="noi-dung">
-  <div class="duong-dan">Giáo trình / {html.escape(chuong.nhom)} / Chương {chuong.thu_tu}</div>
+  <div class="duong-dan">Tài liệu / {html.escape(chuong.nhom)} / Chương {chuong.thu_tu}</div>
   <h1 class="tieu-de-trang">{html.escape(chuong.tieu_de)}</h1>
   <p class="tom-tat">{html.escape(chuong.tom_tat)}</p>
   <div class="thong-tin"><span>⏱ {chuong.so_phut_doc} phút đọc</span><span>✍ {html.escape(cau_hinh.tac_gia)}</span></div>
@@ -147,22 +148,24 @@ def _trang_chu(cau_hinh: CauHinh, cac_chuong: list[Chuong]) -> str:
         )
     noi_dung = f"""<main id="noi-dung">
 <section class="anh-hung">
-  <div><p class="nhan-nhom">Giáo trình mở · 100% tiếng Việt</p>
+  <div><p class="nhan-nhom">Tài liệu mở · 100% tiếng Việt</p>
     <h1>Phân tích GIS<br>với Python</h1>
     <p>Từ dữ liệu vector, raster và hệ tọa độ đến PyQGIS, viễn thám, GeoAI và xuất bản WebGIS.
-    Học theo dự án, chạy được trên máy cá nhân, không phụ thuộc phần mềm độc quyền.</p>
+    Học qua bài thực hành, chạy được trên máy cá nhân, không phụ thuộc phần mềm độc quyền.</p>
     <a class="nut" href="{cac_chuong[0].ten_tap_tin_html}">Bắt đầu học →</a>
     <a class="nut phu" href="{cau_hinh.kho_ma_nguon}">Xem mã nguồn</a>
+    <p class="loi-moi">🤝 Hoan nghênh cộng đồng
+    <a href="{cau_hinh.kho_ma_nguon}/blob/main/CONTRIBUTING.md">góp ý và chỉnh sửa trên GitHub</a>.</p>
   </div><div class="the-ban-do">{BAN_DO_SVG}</div>
 </section>
-<section class="so-lieu" aria-label="Thông tin giáo trình">
+<section class="so-lieu" aria-label="Thông tin tài liệu">
   <div><strong>{len(cac_chuong)}</strong>chương thực hành</div>
   <div><strong>70+</strong>thư viện được phân loại</div>
   <div><strong>Python</strong>trình dựng thuần Python</div>
   <div><strong>MIT</strong>tự do học và phát triển</div>
 </section>
 <section class="khu-vuc" id="lo-trinh"><p class="nhan-nhom">Lộ trình học tập</p>
-  <h2>Đi từ nền tảng đến một dự án GIS hoàn chỉnh</h2>
+  <h2>Đi từ nền tảng đến một quy trình GIS hoàn chỉnh</h2>
   <div class="luoi-chuong">{''.join(the_chuong)}</div>
 </section></main>"""
     return _khung_html(cau_hinh, "Trang chủ", noi_dung, cau_hinh.mo_ta, "index.html")
@@ -177,12 +180,12 @@ def _trang_tra_cuu(cau_hinh: CauHinh, cac_chuong: list[Chuong]) -> str:
             f"<td>{html.escape(chuong.tom_tat)}</td></tr>"
         )
     noi_dung = f"""<main id="noi-dung" class="khu-vuc">
-<p class="nhan-nhom">Chỉ mục</p><h1 class="tieu-de-trang">Tra cứu giáo trình</h1>
+<p class="nhan-nhom">Chỉ mục</p><h1 class="tieu-de-trang">Tra cứu tài liệu</h1>
 <p class="tom-tat">Dùng chức năng tìm trên trang của trình duyệt (Ctrl + F) để tra nhanh chủ đề.</p>
 <div class="bang-cuon"><table><thead><tr><th>Số</th><th>Chương</th><th>Nhóm</th><th>Nội dung</th>
 </tr></thead><tbody>{''.join(cac_hang)}</tbody></table></div></main>"""
     return _khung_html(
-        cau_hinh, "Tra cứu", noi_dung, "Chỉ mục đầy đủ của giáo trình Python GIS", "tra-cuu.html"
+        cau_hinh, "Tra cứu", noi_dung, "Chỉ mục đầy đủ của tài liệu Python GIS", "tra-cuu.html"
     )
 
 

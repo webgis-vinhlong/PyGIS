@@ -1,4 +1,4 @@
-"""Các mô hình dữ liệu của giáo trình."""
+"""Các mô hình dữ liệu của tài liệu."""
 
 from dataclasses import dataclass
 from pathlib import Path

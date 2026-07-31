@@ -77,6 +77,8 @@ th { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; background
   grid-template-columns:1.4fr .8fr; gap:3rem; align-items:center; }
 .anh-hung h1 { margin:0; font-size:clamp(2.7rem,7vw,5.4rem); line-height:.96; letter-spacing:-.065em; }
 .anh-hung p { color:var(--phu); font-size:1.2rem; max-width:58ch; }
+.anh-hung .loi-moi { margin-top:1rem; font-size:.95rem; }
+.loi-moi a { font-weight:750; }
 .nut { display:inline-block; margin:.5rem .5rem .5rem 0; padding:.78rem 1.05rem; border-radius:.65rem;
   background:var(--xanh); color:white; text-decoration:none; font-weight:750; }
 .nut.phu { background:var(--mat); color:var(--xanh-dam); border:1px solid var(--vien); }

@@ -50,7 +50,7 @@ Không có CRS tốt nhất cho mọi mục đích:
 - Lưu trữ và trao đổi web: thường dùng WGS 84, nhưng phân tích cần chuyển đổi.
 - Web map nền: Web Mercator thuận tiện hiển thị nhưng biến dạng diện tích mạnh ở vĩ độ cao.
 
-> [!CẢNH BÁO] Mã EPSG trong ví dụ chỉ là minh họa. Dự án hành chính, đo đạc hoặc pháp lý phải sử dụng hệ quy chiếu do cơ quan có thẩm quyền quy định.
+> [!CẢNH BÁO] Mã EPSG trong ví dụ chỉ là minh họa. Công cụ hành chính, đo đạc hoặc pháp lý phải sử dụng hệ quy chiếu do cơ quan có thẩm quyền quy định.
 
 ## Đo trắc địa trên ellipsoid
 

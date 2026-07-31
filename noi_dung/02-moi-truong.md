@@ -7,7 +7,7 @@ tom_tat: Tạo môi trường Python GIS ổn định trên Windows, macOS và L
 ---
 # Vì sao cần môi trường riêng?
 
-Các thư viện GIS thường phụ thuộc vào GEOS, GDAL và PROJ. Đây là những thành phần nhị phân có quan hệ phiên bản chặt chẽ. Cài tất cả vào Python hệ thống có thể làm dự án này ảnh hưởng dự án khác. Mỗi dự án nên có một môi trường độc lập và tệp mô tả phiên bản.
+Các thư viện GIS thường phụ thuộc vào GEOS, GDAL và PROJ. Đây là những thành phần nhị phân có quan hệ phiên bản chặt chẽ. Cài tất cả vào Python hệ thống có thể làm công cụ này ảnh hưởng công cụ khác. Mỗi công cụ nên có một môi trường độc lập và tệp mô tả phiên bản.
 
 ## Lựa chọn công cụ
 
@@ -15,10 +15,10 @@ Các thư viện GIS thường phụ thuộc vào GEOS, GDAL và PROJ. Đây là
 |---|---|---|
 | Người mới, Windows | Miniforge và Conda | Giải quyết tốt thư viện GIS nhị phân |
 | Gói thuần Python | `venv` và `pip` | Có sẵn trong Python, gọn nhẹ |
-| Dự án cần tốc độ | `uv` | Cài và khóa phụ thuộc nhanh |
+| Công cụ cần tốc độ | `uv` | Cài và khóa phụ thuộc nhanh |
 | PyQGIS | Python đi kèm QGIS | Khớp chính xác thư viện QGIS |
 
-Giáo trình không bắt buộc một công cụ duy nhất. Điều quan trọng là không trộn lẫn `pip` và `conda` tùy tiện trong cùng môi trường.
+Tài liệu không bắt buộc một công cụ duy nhất. Điều quan trọng là không trộn lẫn `pip` và `conda` tùy tiện trong cùng môi trường.
 
 ## Cách 1: Miniforge
 
@@ -76,7 +76,7 @@ python -c "import sys; print(sys.executable)"
 
 Nếu đường dẫn không trỏ vào môi trường vừa tạo, bạn đang dùng sai Python.
 
-## Cấu trúc dự án khuyến nghị
+## Cấu trúc công cụ khuyến nghị
 
 ```text
 du-an-gis/
@@ -106,4 +106,4 @@ Không chỉnh sửa trực tiếp dữ liệu gốc. Tất cả sản phẩm tr
 
 1. Tạo môi trường `pygis-vn`.
 2. In phiên bản Python, GeoPandas, Shapely, PyProj và Rasterio.
-3. Tạo cấu trúc thư mục dự án và ghi lại lệnh tái tạo môi trường trong README.
+3. Tạo cấu trúc thư mục công cụ và ghi lại lệnh tái tạo môi trường trong README.

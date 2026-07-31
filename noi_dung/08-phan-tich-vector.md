@@ -84,7 +84,7 @@ Kết quả 12,347 km không có nghĩa chính xác đến một mét nếu dữ
 - Thiếu đối tượng hoặc thuộc tính.
 - CRS và biến dạng phép chiếu.
 
-## Bài tập dự án nhỏ
+## Bài tập công cụ nhỏ
 
 Xây dựng chỉ số tiếp cận trường học theo xã:
 

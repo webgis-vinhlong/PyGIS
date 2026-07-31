@@ -6,7 +6,7 @@ Cảm ơn bạn muốn cải thiện Python GIS Việt Nam.
 
 - Nội dung giải thích và giao diện phải bằng tiếng Việt rõ ràng.
 - Tên thư viện, hàm, lớp và từ khóa Python được giữ theo tài liệu chính thức.
-- Không sao chép nội dung có bản quyền hoặc đổi giấy phép của dự án khác.
+- Không sao chép nội dung có bản quyền hoặc đổi giấy phép của công cụ khác.
 - Ví dụ dùng dữ liệu giả lập hoặc dữ liệu mở, không chứa thông tin cá nhân.
 - Phát biểu phụ thuộc phiên bản phải có liên kết tài liệu chính thức.
 - Mọi thay đổi phải dựng được website và vượt qua kiểm thử.

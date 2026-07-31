@@ -55,7 +55,7 @@ bo_suu_tap = (
 print(bo_suu_tap.size().getInfo())
 ```
 
-Việc khởi tạo, dự án đám mây và quyền truy cập phụ thuộc chính sách hiện hành của nhà cung cấp.
+Việc khởi tạo, công cụ đám mây và quyền truy cập phụ thuộc chính sách hiện hành của nhà cung cấp.
 
 ## STAC và đọc theo vùng
 

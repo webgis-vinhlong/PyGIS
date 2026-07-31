@@ -3,7 +3,7 @@ thu_tu: 4
 dinh_danh: mo-hinh-du-lieu-khong-gian
 tieu_de: Mô hình dữ liệu và định dạng GIS
 nhom: Nền tảng
-tom_tat: Chọn đúng vector, raster, lưới đa chiều và định dạng lưu trữ cho từng quy mô dự án.
+tom_tat: Chọn đúng vector, raster, lưới đa chiều và định dạng lưu trữ cho từng quy mô công cụ.
 ---
 # Vector, raster và mảng đa chiều
 

@@ -8,4 +8,4 @@ Thông báo bản quyền và thông báo cấp quyền trong tệp `LICENSE` ph
 
 Phần mềm được cung cấp theo hiện trạng, không kèm bất kỳ bảo đảm nào. Tác giả hoặc chủ sở hữu bản quyền không chịu trách nhiệm đối với khiếu nại, thiệt hại hoặc trách nhiệm phát sinh từ phần mềm hay việc sử dụng phần mềm.
 
-> Đây là bản diễn giải thuận tiện, không phải văn bản pháp lý thay thế. Tệp `LICENSE` bằng tiếng Anh là văn bản giấy phép MIT áp dụng cho dự án.
+> Đây là bản diễn giải thuận tiện, không phải văn bản pháp lý thay thế. Tệp `LICENSE` bằng tiếng Anh là văn bản giấy phép MIT áp dụng cho công cụ.

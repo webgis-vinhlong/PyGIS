@@ -3,7 +3,7 @@ thu_tu: 13
 dinh_danh: tu-dong-hoa-qgis-voi-pyqgis
 tieu_de: Tự động hóa QGIS với PyQGIS
 nhom: Ứng dụng
-tom_tat: Điều khiển dự án, lớp dữ liệu và thuật toán Processing bằng Python trong QGIS 3.44.
+tom_tat: Điều khiển công cụ, lớp dữ liệu và thuật toán Processing bằng Python trong QGIS 3.44.
 ---
 # Khi nào dùng PyQGIS?
 

@@ -2,7 +2,7 @@
 
 # 🗺️ Python GIS Việt Nam
 
-### Giáo trình mở về phân tích dữ liệu không gian bằng Python
+### Tài liệu mở về phân tích dữ liệu không gian bằng Python
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Giấy phép MIT](https://img.shields.io/badge/Giấy%20phép-MIT-0B7A53)](LICENSE)
@@ -13,7 +13,9 @@
 
 [🌐 Mở website](https://webgis-vinhlong.github.io/PyGIS/) ·
 [🚀 Bắt đầu trong 5 phút](#-chạy-trong-5-phút) ·
-[🤝 Đóng góp](CONTRIBUTING.md)
+[🤝 Đóng góp](https://github.com/webgis-vinhlong/PyGIS/blob/main/CONTRIBUTING.md)
+
+**🤝 Hoan nghênh cộng đồng góp ý và chỉnh sửa trên GitHub.**
 
 </div>
 
@@ -23,15 +25,18 @@
 
 Python GIS Việt Nam là website học tập mã nguồn mở dành cho sinh viên, chuyên viên GIS, nhà nghiên cứu và lập trình viên muốn xây dựng quy trình phân tích không gian có thể tái lập.
 
-Dự án được viết lại theo kiến trúc **trình dựng website bằng Python thuần**:
+Mọi ý kiến, đề xuất nội dung và bản chỉnh sửa đều được hoan nghênh tại
+[GitHub Discussions, Issues và Pull Requests](https://github.com/webgis-vinhlong/PyGIS).
+
+Công cụ được viết lại theo kiến trúc **trình dựng website bằng Python thuần**:
 
 - Không dùng Node, JavaScript hay trình dựng giao diện bên ngoài.
 - Bộ chuyển Markdown, kết xuất HTML, mục lục, điều hướng, SEO và máy chủ xem trước đều viết bằng thư viện chuẩn Python.
 - Xuất website HTML tĩnh, chạy được ngoại tuyến và triển khai miễn phí trên GitHub Pages.
 - Nội dung, giao diện và hướng dẫn đều bằng tiếng Việt; từ khóa Python và tên thư viện giữ nguyên theo chuẩn kỹ thuật.
-- Mã nguồn và nội dung do dự án biên soạn phát hành theo MIT.
+- Mã nguồn và nội dung do công cụ biên soạn phát hành theo MIT.
 
-> Tên hiển thị của dự án là **Python GIS Việt Nam**. Dự án độc lập, dùng biểu tượng riêng, không liên kết và không được chứng thực bởi pygis.io hoặc các dự án được dẫn nguồn.
+> Tên hiển thị của công cụ là **Python GIS Việt Nam**. Công cụ độc lập, dùng biểu tượng riêng, không liên kết và không được chứng thực bởi pygis.io hoặc các công cụ được dẫn nguồn.
 
 ## ✨ Điểm nổi bật
 
@@ -44,7 +49,7 @@ Dự án được viết lại theo kiến trúc **trình dựng website bằng 
 | ♿ Khả năng tiếp cận | HTML ngữ nghĩa, bỏ qua điều hướng, độ tương phản và chế độ tối |
 | 🔎 Tra cứu nhanh | Chỉ mục chương, mục lục từng trang và liên kết tiêu đề |
 | 🚢 Tự động triển khai | GitHub Actions dựng và phát hành GitHub Pages |
-| 🇻🇳 Bối cảnh Việt Nam | Ví dụ, bài tập và dự án tổng hợp tại Vĩnh Long |
+| 🇻🇳 Bối cảnh Việt Nam | Ví dụ, bài tập và công cụ tổng hợp tại Vĩnh Long |
 
 ## 🧭 Lộ trình 20 chương
 
@@ -58,7 +63,7 @@ Dự án được viết lại theo kiến trúc **trình dựng website bằng 
 | Trình bày | Matplotlib, Folium và nguyên tắc bản đồ |
 | Ứng dụng | PyQGIS 3.44, OSM, Earth Engine, nền tảng đám mây |
 | Nâng cao | GeoAI, WebGIS, kiểm thử và khả năng tái lập |
-| Dự án | Phân tích khả năng tiếp cận dịch vụ công tại Vĩnh Long |
+| Công cụ | Phân tích khả năng tiếp cận dịch vụ công tại Vĩnh Long |
 | Tra cứu | Danh mục 70 thư viện và tài liệu chính thống |
 
 ## 🚀 Chạy trong 5 phút
@@ -162,7 +167,7 @@ Trình dựng hỗ trợ tiêu đề, đoạn văn, danh sách, bảng, khối m
 
 ## 📚 Nguồn tham khảo
 
-Giáo trình được biên soạn mới và đối chiếu với:
+Tài liệu được biên soạn mới và đối chiếu với:
 
 - [Tài liệu PyQGIS 3.44](https://docs.qgis.org/3.44/en/docs/pyqgis_developer_cookbook/)
 - [Python GIS Book](https://pythongis.org/)
